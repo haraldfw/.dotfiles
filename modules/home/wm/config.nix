@@ -11,15 +11,14 @@ in
         "hyprpaper"
       ];
 
-      env = {
-        HYPRCURSOR_THEME = "Nordzy-catppuccin-mocha-dark";
-        XCURSOR_SIZE = 28;
-        HYPRCURSOR_SIZE = 28;
-        QT_QPA_PLATFORM = "xcb";
-      };
+      env = [
+        "HYPRCURSOR_THEME,Nordzy-catppuccin-mocha-dark"
+        "XCURSOR_SIZE,28"
+        "HYPRCURSOR_SIZE,28"
+        "QT_QPA_PLATFORM,xcb"
+      ];
 
       input = {
-
         kb_layout = "us";
         kb_variant = "altgr-intl";
         repeat_delay = 300;
