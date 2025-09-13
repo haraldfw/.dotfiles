@@ -2,9 +2,9 @@
 {
   imports = [
     ./alacritty
+    ./fonts.nix
+    ./packages.nix
     ./wm
     ./zsh
-    ./packages.nix
-    ./fonts.nix
   ];
 }

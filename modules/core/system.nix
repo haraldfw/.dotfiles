@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   # imports = [
@@ -48,31 +48,10 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    home-manager
-    nix-search-cli
-    postman
-
-    vim
-    neovim
-    busybox
-    htop
-    wget
-
-    librewolf
-    ungoogled-chromium
-    libreoffice
-    nixd
-    gimp
-    vlc
-    dunst
-
     git
+    nix-search-cli
+    wget
     gnumake
-    go
-    vscodium
-    nixfmt
-    bun
-    biome
   ];
 
   fonts.packages = with pkgs; [
