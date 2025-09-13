@@ -49,7 +49,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     home-manager
-    alacritty
     nix-search-cli
     postman
 
@@ -74,6 +73,11 @@
     nixfmt
     bun
     biome
+  ];
+
+  fonts.packages = with pkgs; [
+    font-awesome
+    fira-code
   ];
 
   # List services that you want to enable:
