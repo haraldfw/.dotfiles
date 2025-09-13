@@ -2,13 +2,11 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  # imports = [
+  # ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -39,22 +37,13 @@
     variant = "altgr-intl";
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.haraldfw = {
-    isNormalUser = true;
-    description = "Harald Floor Wilhelmsen";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      discord
-      steam
-      path-of-building
-    ];
-  };
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -62,22 +51,13 @@
     home-manager
     alacritty
     nix-search-cli
+    postman
 
     vim
     neovim
     busybox
     htop
-    zsh
     wget
-
-    hyprland
-    waybar
-    rofi-wayland
-    hyprshot
-    pavucontrol
-    nordzy-cursor-theme
-    eog
-    kdePackages.dolphin
 
     librewolf
     ungoogled-chromium
@@ -95,28 +75,6 @@
     bun
     biome
   ];
-
-  fonts.packages = with pkgs; [
-    font-awesome
-    fira-code
-  ];
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-
-  environment.sessionVariables = {
-    WLR_NO_HARDWARE_CURSORS = "1";
-    NIXOS_OZONE_WL = "1";
-  };
 
   # List services that you want to enable:
 
@@ -178,14 +136,14 @@
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/indie-wiki-buddy/latest.xpi";
           installation_mode = "force_installed";
         };
-	"sponsorblock@ajay" = {
-	  install_url = "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
-	  installation_mode = "force_installed";
-	};
-	"react-devtools@React" = {
-	  install_url = "https://addons.mozilla.org/firefox/downloads/latest/react-devtools/latest.xpi";
-	  installation_mode = "force_installed";
-	};
+        "sponsorblock@ajay" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        "react-devtools@React" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/react-devtools/latest.xpi";
+          installation_mode = "force_installed";
+        };
       };
     };
   };
