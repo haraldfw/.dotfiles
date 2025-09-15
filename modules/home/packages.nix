@@ -9,7 +9,6 @@
     busybox
     htop
 
-    librewolf
     ungoogled-chromium
     libreoffice
     nixd

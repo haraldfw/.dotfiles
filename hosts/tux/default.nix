@@ -1,10 +1,8 @@
 { ... }:
 {
   imports = [
+    ./base.nix
     ./hardware-configuration.nix
-    ./extra.nix
     ./../../modules/core
   ];
-
-  powerManagement.cpuFreqGovernor = "performance";
 }

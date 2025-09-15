@@ -2,10 +2,11 @@
 {
   imports = [
     ./alacritty
-    ./fonts.nix
-    ./packages.nix
     ./wm
     ./zsh
+    ./fonts.nix
+    ./librewolf.nix
+    ./packages.nix
   ];
 
   home.stateVersion = "25.11";
