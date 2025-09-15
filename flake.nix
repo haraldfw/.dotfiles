@@ -45,7 +45,12 @@
   };
 
   outputs =
-    { self, nixpkgs, home-manager, ... }@inputs:
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }@inputs:
     let
       system = "x86_64-linux";
       username = "haraldfw";
@@ -70,14 +75,9 @@
         ${username} = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./modules/home ];
-
-          isNormalUser = true;
-          description = "${username}";
-          extraGroups = [
-            "networkmanager"
-            "wheel"
-          ];
-          shell = pkgs.zsh;
+          extraSpecialArgs = {
+            inherit inputs username;
+          };
         };
       };
     };

@@ -3,7 +3,7 @@
   home.packages = with pkgs; [
     wayland
     waybar
-    rofi-wayland
+    rofi
     hyprshot
     pavucontrol
     nordzy-cursor-theme
