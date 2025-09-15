@@ -19,7 +19,6 @@
 
     go
     vscodium
-    nixfmt
     bun
     biome
   ];

@@ -49,6 +49,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     git
+    nixfmt
     nix-search-cli
     wget
     gnumake

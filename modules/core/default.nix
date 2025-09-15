@@ -1,8 +1,8 @@
 { ... }:
 {
   imports = [
-    ./system.nix
-    ./user.nix
     ./pipewire.nix
+    ./system.nix
+    # ./user.nix
   ];
 }

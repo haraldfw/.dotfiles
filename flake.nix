@@ -16,36 +16,36 @@
     #   inputs.nixpkgs.follows = "hyprland/nixpkgs";
     # };
 
-    hyprpicker = {
-      url = "github:hyprwm/hyprpicker";
-      inputs.nixpkgs.follows = "hyprland/nixpkgs";
-    };
+    # hyprpicker = {
+    #   url = "github:hyprwm/hyprpicker";
+    #   inputs.nixpkgs.follows = "hyprland/nixpkgs";
+    # };
 
-    hyprlock = {
-      url = "github:hyprwm/hyprlock";
-      inputs = {
-        hyprgraphics.follows = "hyprland/hyprgraphics";
-        hyprlang.follows = "hyprland/hyprlang";
-        hyprutils.follows = "hyprland/hyprutils";
-        nixpkgs.follows = "hyprland/nixpkgs";
-        systems.follows = "hyprland/systems";
-      };
-    };
+    # hyprlock = {
+    #   url = "github:hyprwm/hyprlock";
+    #   inputs = {
+    #     hyprgraphics.follows = "hyprland/hyprgraphics";
+    #     hyprlang.follows = "hyprland/hyprlang";
+    #     hyprutils.follows = "hyprland/hyprutils";
+    #     nixpkgs.follows = "hyprland/nixpkgs";
+    #     systems.follows = "hyprland/systems";
+    #   };
+    # };
 
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs = {
-        hyprland = {
-          follows = "hyprland";
-        };
-      };
-    };
+    # hyprland-plugins = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs = {
+    #     hyprland = {
+    #       follows = "hyprland";
+    #     };
+    #   };
+    # };
 
     # nix-gaming.url = "github:fufexan/nix-gaming";
   };
 
   outputs =
-    { self, nixpkgs, ... }@inputs:
+    { self, nixpkgs, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
       username = "haraldfw";
@@ -64,6 +64,20 @@
             host = "tux";
             inherit self inputs username;
           };
+        };
+      };
+      homeConfigurations = {
+        ${username} = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./modules/home ];
+
+          isNormalUser = true;
+          description = "${username}";
+          extraGroups = [
+            "networkmanager"
+            "wheel"
+          ];
+          shell = pkgs.zsh;
         };
       };
     };
