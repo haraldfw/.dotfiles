@@ -5,7 +5,7 @@
   fonts = {
     fontconfig = {
       defaultFonts = {
-        monospace = "fira-code";
+        monospace = [ "Fira Code" ];
       };
     };
     packages = with pkgs; [
