@@ -11,10 +11,10 @@
     kdePackages.dolphin
   ];
 
-  # programs.hyprland = {
-  #   enable = true;
-  #   xwayland.enable = true;
-  # };
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
   systemd.user.targets.hyprland-session.Unit.Wants = [
     "xdg-desktop-autostart.target"
   ];
