@@ -4,7 +4,6 @@
     ./alacritty
     ./wm
     ./zsh
-    ./fonts.nix
     ./librewolf.nix
     ./packages.nix
   ];

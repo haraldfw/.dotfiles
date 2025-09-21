@@ -20,6 +20,7 @@
 
   fonts.packages = with pkgs; [
     fira-code
+    fira-code-symbols
   ];
 
   services.openssh.enable = true;
