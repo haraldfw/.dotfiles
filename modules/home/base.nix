@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    discord
+    webcord-vencord
     steam
     path-of-building
 

@@ -4,8 +4,8 @@
     ./alacritty
     ./wm
     ./zsh
+    ./base.nix
     ./librewolf.nix
-    ./packages.nix
   ];
 
   home.stateVersion = "25.11";
