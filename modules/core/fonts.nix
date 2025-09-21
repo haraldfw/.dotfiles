@@ -5,13 +5,14 @@
   fonts = {
     fontconfig = {
       defaultFonts = {
+        emoji = [ "" ];
         monospace = [ "Fira Code" ];
       };
     };
     packages = with pkgs; [
       fira-code
       fira-code-symbols
-      nerd-fonts.symbols-only
+      font-awesome
     ];
   };
 }
