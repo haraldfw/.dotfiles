@@ -9,7 +9,8 @@ Installation instructions will be added the next time I need to set up a PC and 
 I suspect it will be something like this:
 1. Open a shell with git: `nix-shell -p git`
 2. Pull repo
-3. Sync: `./scripts/sync.bash`
+3. Change username and hostname where it applies (hostname `tux` and username `haraldfw`)
+4. Sync: `./scripts/sync.bash`
 
 # Credits
 I used the configs of [librephoenix](https://github.com/librephoenix/nixos-config) and [Frost-Phoenix](https://github.com/Frost-Phoenix/nixos-config) for inspiration. I tested none of their setups out of the box, but I have reused a lot of their concepts, and they were great to read for figuring out how some of nix' magic can be tamed.
