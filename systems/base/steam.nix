@@ -6,4 +6,7 @@
     dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
   };
+
+  hardware.graphics.enable32Bit = true;
+  environment.systemPackages = [ pkgs.steam ];
 }
