@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     wayland
+    xwayland
     waybar
     hyprland
     hyprshot
