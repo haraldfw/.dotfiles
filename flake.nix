@@ -64,7 +64,7 @@
       nixosConfigurations = {
         tux = lib.nixosSystem {
           inherit system;
-          modules = [ ./hosts/tux ];
+          modules = [ ./systems/tux ];
           specialArgs = {
             host = "tux";
             inherit self inputs username;
@@ -74,7 +74,7 @@
       homeConfigurations = {
         ${username} = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./modules/home ];
+          modules = [ ./home ];
           extraSpecialArgs = {
             inherit inputs username;
           };

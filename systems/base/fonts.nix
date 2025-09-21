@@ -1,11 +1,10 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
 
   fonts = {
     fontconfig = {
       defaultFonts = {
-        emoji = [ "" ];
         monospace = [ "Fira Code" ];
       };
     };
