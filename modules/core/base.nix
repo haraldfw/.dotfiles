@@ -21,6 +21,7 @@
   fonts.packages = with pkgs; [
     fira-code
     fira-code-symbols
+    nerd-fonts.symbols-only
   ];
 
   services.openssh.enable = true;
