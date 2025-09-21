@@ -1,7 +1,7 @@
 # NIXOS config
 Scripts to sync and configure in `/scripts`.
 
-Leaving files in this repo as user-level access is a secutiry risk btw. Hardening can be done by
+Leaving files in this repo as user-level access is a secutiry risk btw. Hardening can be done by `chown`-ing the entire repo to root. Though then you would have to sync as `sudo` or root. Maybe I will make some functionality for this in the future.
 
 # Setup/Installation
 Installation instructions will be added the next time I need to set up a PC and have to figure it out.
