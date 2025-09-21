@@ -3,18 +3,15 @@
   home.packages = with pkgs; [
     wayland
     waybar
-    rofi
+    hyprland
     hyprshot
+    rofi
     pavucontrol
     nordzy-cursor-theme
     eog
     kdePackages.dolphin
   ];
 
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
   systemd.user.targets.hyprland-session.Unit.Wants = [
     "xdg-desktop-autostart.target"
   ];
