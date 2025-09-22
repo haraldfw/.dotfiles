@@ -1,10 +1,10 @@
-{ pkgs, ... }:
+{ ... }:
 {
-  home.packages = with pkgs; [
-    alacritty
-  ];
+  config.programs.alacritty = {
+    enable = true;
+    settings = {
 
-  programs.alacritty.settings = {
-    font.size = 25;
+      font.size = 13;
+    };
   };
 }
