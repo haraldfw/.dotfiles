@@ -16,7 +16,6 @@
     dunst
 
     go
-    vscodium
     bun
     biome
   ];

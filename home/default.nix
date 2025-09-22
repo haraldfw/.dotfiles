@@ -2,11 +2,12 @@
 {
   imports = [
     ./wm
-    ./zsh
     ./alacritty.nix
     ./base.nix
     ./librewolf.nix
+    ./vscodium.nix
     ./xdg.nix
+    ./zsh.nix
   ];
 
   home.stateVersion = "25.11";
