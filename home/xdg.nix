@@ -88,5 +88,10 @@ in
   home.sessionVariables = {
     # prevent wine from creating file associations
     WINEDLLOVERRIDES = "winemenubuilder.exe=d";
+    # xdg env variables
+    XDG_CACHE_HOME = "$HOME/.cache";
+    XDG_CONFIG_HOME = "$HOME/.config";
+    XDG_DATA_HOME = "$HOME/.local/share";
+    XDG_STATE_HOME = "$HOME/.local/state";
   };
 }
