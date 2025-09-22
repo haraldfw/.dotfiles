@@ -11,7 +11,6 @@
 
     ungoogled-chromium
     libreoffice
-    nixd
     gimp
     vlc
     dunst

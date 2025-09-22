@@ -1,9 +1,9 @@
 { username, ... }:
 {
   imports = [
-    ./alacritty
     ./wm
     ./zsh
+    ./alacritty.nix
     ./base.nix
     ./librewolf.nix
   ];
