@@ -6,6 +6,7 @@
     ./alacritty.nix
     ./base.nix
     ./librewolf.nix
+    ./xdg.nix
   ];
 
   home.stateVersion = "25.11";
