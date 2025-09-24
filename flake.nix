@@ -70,6 +70,14 @@
             inherit self inputs username;
           };
         };
+        tuxollini = lib.nixosSystem {
+          inherit system;
+          modules = [ ./systems/tuxollini ];
+          specialArgs = {
+            host = "tuxollini";
+            inherit self inputs username;
+          };
+        };
       };
       homeConfigurations = {
         ${username} = home-manager.lib.homeManagerConfiguration {
