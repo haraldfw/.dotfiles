@@ -24,7 +24,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     package = null;
-    portalPackage = null;
+    portalPackage = pkgs.xdg-desktop-portal-hyprland;
 
     xwayland = {
       enable = true;
