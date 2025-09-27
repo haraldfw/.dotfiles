@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # This script runs system and user sync
+set -euo pipefail
 
 DOTFILES_DIR=$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && cd .. && pwd);
 

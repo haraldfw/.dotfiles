@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 DOTFILES_DIR=$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && cd .. && pwd);
 
 $DOTFILES_DIR/scripts/dry-sync-system.bash;
