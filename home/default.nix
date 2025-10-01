@@ -3,6 +3,7 @@
   imports = [
     ./alacritty.nix
     ./base.nix
+    ./hyprland.nix
     ./librewolf.nix
     ./vscodium.nix
     ./xdg.nix

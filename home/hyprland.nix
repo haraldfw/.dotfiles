@@ -3,7 +3,7 @@ let
   terminal = "alacritty";
 in
 {
-  programs.hyprland = {
+  wayland.windowManager.hyprland = {
     settings = {
       # autostart
       exec-once = [
