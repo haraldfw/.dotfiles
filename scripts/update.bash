@@ -4,7 +4,7 @@ set -euo pipefail
 
 DOTFILES_DIR=$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && cd .. && pwd);
 
-pushd $SCRIPT_DIR &> /dev/null;
+pushd $DOTFILES_DIR &> /dev/null;
 echo Updating flake...
 sudo nix flake update;
 echo Updating nix-channel as root...
