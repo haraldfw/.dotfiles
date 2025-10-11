@@ -122,7 +122,7 @@ in
         "$mainMod, W, killactive,"
         "$mainMod, E, exec, dolphin"
         "$mainMod, S, togglefloating,"
-        "$mainMod, SPACE, exec, rofi -show drun combi"
+        "$mainMod, SPACE, exec, rofi -theme gruvbox-dark.rasi -show combi -modes combi"
         "$mainMod, J, togglesplit,"
         "$mainMod ALT, ESCAPE, exit,"
         "$mainMod,F,fullscreen "
