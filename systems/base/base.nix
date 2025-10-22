@@ -16,6 +16,8 @@
     nix-search-cli
     wget
     gnumake
+    busybox
+    iputils
   ];
 
   services.openssh.enable = true;

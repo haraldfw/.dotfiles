@@ -6,7 +6,6 @@
     path-of-building
 
     neovim
-    busybox
     htop
 
     ungoogled-chromium

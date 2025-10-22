@@ -33,7 +33,7 @@
           "editor.defaultFormatter" = "biomejs.biome";
         };
         "editor.insertSpaces" = false;
-        "workbench.colorTheme" = "Gruvbox Dark Hard";
+        "workbench.colorTheme" = "Monokai";
         "files.insertFinalNewline" = true;
         "files.trimFinalNewlines" = true;
         "files.autoSave" = "onFocusChange";
