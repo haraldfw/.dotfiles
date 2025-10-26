@@ -4,6 +4,7 @@
     webcord-vencord
     steam
     path-of-building
+    spotify
 
     neovim
     htop
