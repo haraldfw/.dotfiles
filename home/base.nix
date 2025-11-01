@@ -18,5 +18,8 @@
     go
     bun
     biome
+
+    godot
+    aseprite
   ];
 }

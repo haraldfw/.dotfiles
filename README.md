@@ -15,4 +15,5 @@ I suspect it will be something like this:
 # Credits
 I used the configs of [librephoenix](https://github.com/librephoenix/nixos-config) and [Frost-Phoenix](https://github.com/Frost-Phoenix/nixos-config) for inspiration. I tested none of their setups out of the box, but I have reused a lot of their concepts, and they were great to read for figuring out how some of nix' magic can be tamed.
 
-I had a lot of issues with fonts, so I ended up installing these system-wide.
+I had a lot of issues with fonts when installing them through home-manager, so I ended up installing these system-wide.
+
