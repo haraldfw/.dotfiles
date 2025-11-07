@@ -3,7 +3,7 @@
   home.packages = with pkgs; [
     webcord-vencord
     steam
-    path-of-building
+    rusty-path-of-building
     spotify
 
     neovim
