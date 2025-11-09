@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -49,6 +50,7 @@
       self,
       nixpkgs,
       home-manager,
+      nix-vscode-extensions,
       ...
     }@inputs:
     let
@@ -57,6 +59,9 @@
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
+        overlays = [
+          nix-vscode-extensions.overlays.default
+        ];
       };
       lib = nixpkgs.lib;
     in

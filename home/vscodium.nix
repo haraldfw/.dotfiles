@@ -1,18 +1,19 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 {
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
 
     profiles.default = {
-      extensions = with pkgs.vscode-extensions; [
-        jdinhlife.gruvbox
-
+      extensions = with pkgs.nix-vscode-extensions.vscode-marketplace; [
         jnoortheen.nix-ide
-
         biomejs.biome
-
         golang.go
+        geequlim.godot-tools
+        alfish.godot-files
       ];
       globalSnippets = {
         "#bash" = {
