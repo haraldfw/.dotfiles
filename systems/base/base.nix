@@ -17,6 +17,7 @@
     wget
     gnumake
     busybox
+    ripgrep
     iputils
   ];
 

@@ -62,6 +62,9 @@
         overlays = [
           nix-vscode-extensions.overlays.default
         ];
+        config.permittedInsecurePackages = [
+          "electron-36.9.5"
+        ];
       };
       lib = nixpkgs.lib;
     in

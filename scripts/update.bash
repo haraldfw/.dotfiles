@@ -7,8 +7,11 @@ DOTFILES_DIR=$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && cd ..
 pushd $DOTFILES_DIR &> /dev/null;
 echo Updating flake...
 sudo nix flake update;
+
 echo Updating nix-channel as root...
 sudo nix-channel --update;
+
 echo Updating nix-channel as user...
 nix-channel --update;
+
 popd &> /dev/null;

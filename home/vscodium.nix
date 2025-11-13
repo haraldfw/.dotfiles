@@ -33,6 +33,7 @@
         "[typescriptreact]" = {
           "editor.defaultFormatter" = "biomejs.biome";
         };
+        "editor.formatOnSave" = true;
         "editor.insertSpaces" = false;
         "workbench.colorTheme" = "Monokai";
         "files.insertFinalNewline" = true;

@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    webcord-vencord
+    webcord
     steam
     rusty-path-of-building
     spotify
