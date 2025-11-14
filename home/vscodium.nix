@@ -14,6 +14,7 @@
         golang.go
         geequlim.godot-tools
         alfish.godot-files
+        rust-lang.rust-analyzer
       ];
       globalSnippets = {
         "#bash" = {

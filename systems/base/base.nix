@@ -19,6 +19,10 @@
     busybox
     ripgrep
     iputils
+
+    cargo
+    rustc
+    gcc
   ];
 
   services.openssh.enable = true;
