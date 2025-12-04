@@ -15,6 +15,7 @@
         geequlim.godot-tools
         alfish.godot-files
         rust-lang.rust-analyzer
+        arrterian.nix-env-selector
       ];
       globalSnippets = {
         "#bash" = {
@@ -42,6 +43,9 @@
         "files.autoSave" = "onFocusChange";
         "nix.enableLanguageServer" = true;
         "nix.serverPath" = "nil";
+        "[jsonc]" = {
+          "editor.defaultFormatter" = "vscode.json-language-features";
+        };
       };
       keybindings = [
         {
