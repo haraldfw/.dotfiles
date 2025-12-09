@@ -2,11 +2,6 @@
 {
   programs.waybar = {
     enable = true;
-    style = ''
-      #workspaces button.active {
-        color: #00dd33;
-      }
-    '';
     settings = {
       mainBar = {
         height = 30;
@@ -31,6 +26,17 @@
         "hyprland/workspaces" = {
           format = "{icon}";
           on-click = "activate";
+          persistent-workspaces = {
+            "1" = [ ];
+            "2" = [ ];
+            "3" = [ ];
+            "4" = [ ];
+            "5" = [ ];
+            "6" = [ ];
+          };
+          format-icons = {
+            active = "■";
+          };
         };
         "hyprland/submap" = {
           format = "<span style=\"italic\">{}</span>";
