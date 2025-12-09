@@ -1,7 +1,4 @@
 { ... }:
-let
-  terminal = "alacritty";
-in
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -118,7 +115,7 @@ in
         # show keybinds list
         "$mainMod, F1, exec, show-keybinds"
 
-        "$mainMod, RETURN, exec, ${terminal}"
+        "$mainMod, RETURN, exec, alacritty"
         "$mainMod, W, killactive,"
         "$mainMod, E, exec, dolphin"
         "$mainMod, S, togglefloating,"
