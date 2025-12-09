@@ -6,6 +6,7 @@
     ./hyprland.nix
     ./librewolf.nix
     ./vscodium.nix
+    ./waybar.nix
     ./xdg.nix
     ./zsh.nix
   ];

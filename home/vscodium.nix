@@ -30,6 +30,8 @@
         };
       };
       userSettings = {
+        "editor.fontFamily" = "Fira Code";
+        "editor.fontLigatures" = false;
         "editor.renderWhitespace" = "all";
         "biome.lsp.bin" = "/nix/store/i07bwiby5015ilpdg853j71gbfvlay65-system-path/bin/biome";
         "[typescriptreact]" = {

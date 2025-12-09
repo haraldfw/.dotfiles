@@ -19,7 +19,7 @@
   };
 
   # systemd.user.targets.hyprland-session.Unit.Wants = [
-  #   "xdg-desktop-autostart.target"
+  #	"xdg-desktop-autostart.target"
   # ];
   programs.hyprland = {
     enable = true;

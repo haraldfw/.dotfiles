@@ -19,6 +19,7 @@
     busybox
     ripgrep
     iputils
+    tmux
 
     cargo
     rustc
