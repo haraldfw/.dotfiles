@@ -3,6 +3,10 @@
   ...
 }:
 let
+  # these settings are used by all profiles
+  extensions = with pkgs.nix-vscode-extensions.vscode-marketplace; [
+    arrterian.nix-env-selector
+  ];
   globalSnippets = {
     "#bash" = {
       body = [
@@ -19,18 +23,12 @@ let
     "editor.fontFamily" = "Fira Code";
     "editor.fontLigatures" = false;
     "editor.renderWhitespace" = "all";
-    "biome.lsp.bin" = "/nix/store/i07bwiby5015ilpdg853j71gbfvlay65-system-path/bin/biome";
-    "[typescriptreact]" = {
-      "editor.defaultFormatter" = "biomejs.biome";
-    };
     "editor.formatOnSave" = true;
     "editor.insertSpaces" = false;
     "workbench.colorTheme" = "Monokai";
     "files.insertFinalNewline" = true;
     "files.trimFinalNewlines" = true;
     "files.autoSave" = "onFocusChange";
-    "nix.enableLanguageServer" = true;
-    "nix.serverPath" = "nil";
     "[jsonc]" = {
       "editor.defaultFormatter" = "vscode.json-language-features";
     };
@@ -150,15 +148,76 @@ in
     package = pkgs.vscodium;
 
     profiles.default = {
-      extensions = with pkgs.nix-vscode-extensions.vscode-marketplace; [
-        jnoortheen.nix-ide
-        biomejs.biome
-        golang.go
-        geequlim.godot-tools
-        alfish.godot-files
-        rust-lang.rust-analyzer
-        arrterian.nix-env-selector
-      ];
+      extensions = extensions;
+      globalSnippets = globalSnippets;
+      userSettings = userSettings;
+      keybindings = keybindings;
+    };
+
+    profiles.go = {
+      extensions =
+        with pkgs.nix-vscode-extensions.vscode-marketplace;
+        [
+          golang.go
+        ]
+        ++ extensions;
+      globalSnippets = globalSnippets;
+      userSettings = userSettings;
+      keybindings = keybindings;
+    };
+
+    profiles.godot = {
+      extensions =
+        with pkgs.nix-vscode-extensions.vscode-marketplace;
+        [
+          geequlim.godot-tools
+          alfish.godot-files
+        ]
+        ++ extensions;
+      globalSnippets = globalSnippets;
+      userSettings = userSettings;
+      keybindings = keybindings;
+    };
+
+    profiles.js = {
+      extensions =
+        with pkgs.nix-vscode-extensions.vscode-marketplace;
+        [
+          biomejs.biome
+        ]
+        ++ extensions;
+      globalSnippets = globalSnippets;
+      userSettings = userSettings // {
+        "biome.lsp.bin" = pkgs.biome.outPath + "/bin/biome";
+        "[typescriptreact]" = {
+          "editor.defaultFormatter" = "biomejs.biome";
+        };
+      };
+      keybindings = keybindings;
+    };
+
+    profiles.nix = {
+      extensions =
+        with pkgs.nix-vscode-extensions.vscode-marketplace;
+        [
+          jnoortheen.nix-ide
+        ]
+        ++ extensions;
+      globalSnippets = globalSnippets;
+      userSettings = userSettings // {
+        "nix.enableLanguageServer" = true;
+        "nix.serverPath" = "nil";
+      };
+      keybindings = keybindings;
+    };
+
+    profiles.rust = {
+      extensions =
+        with pkgs.nix-vscode-extensions.vscode-marketplace;
+        [
+          rust-lang.rust-analyzer
+        ]
+        ++ extensions;
       globalSnippets = globalSnippets;
       userSettings = userSettings;
       keybindings = keybindings;
