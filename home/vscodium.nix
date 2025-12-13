@@ -6,6 +6,7 @@ let
   # these settings are used by all profiles
   extensions = with pkgs.nix-vscode-extensions.vscode-marketplace; [
     arrterian.nix-env-selector
+    vscodevim.vim
   ];
   globalSnippets = {
     "#bash" = {
@@ -31,6 +32,49 @@ let
     "files.autoSave" = "onFocusChange";
     "[jsonc]" = {
       "editor.defaultFormatter" = "vscode.json-language-features";
+    };
+    "vim.easymotion" = true;
+    "vim.incsearch" = true;
+    "vim.useSystemClipboard" = true;
+    "vim.useCtrlKeys" = true;
+    "vim.hlsearch" = true;
+    "vim.insertModeKeyBindings" = [
+      {
+        "before" = [
+          "j"
+          "j"
+        ];
+        "after" = [ "<Esc>" ];
+      }
+    ];
+    "vim.normalModeKeyBindingsNonRecursive" = [
+      {
+        "before" = [
+          "<leader>"
+          "d"
+        ];
+        "after" = [
+          "d"
+          "d"
+        ];
+      }
+      {
+        "before" = [ "<C-n>" ];
+        "commands" = [ ":nohl" ];
+      }
+      {
+        "before" = [ "K" ];
+        "commands" = [ "lineBreakInsert" ];
+        "silent" = true;
+      }
+    ];
+    "vim.leader" = "<space>";
+    "vim.handleKeys" = {
+      "<C-a>" = false;
+      "<C-f>" = false;
+    };
+    "extensions.experimental.affinity" = {
+      "vscodevim.vim" = 1;
     };
   };
   keybindings = [

@@ -1,2 +1,0 @@
-fmt:
-	./scripts/fmt.bash
