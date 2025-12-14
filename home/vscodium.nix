@@ -198,6 +198,18 @@ in
       keybindings = keybindings;
     };
 
+    profiles.c = {
+      extensions =
+        with pkgs.nix-vscode-extensions.vscode-marketplace;
+        [
+          ms-vscode.cpptools
+        ]
+        ++ extensions;
+      globalSnippets = globalSnippets;
+      userSettings = userSettings;
+      keybindings = keybindings;
+    };
+
     profiles.go = {
       extensions =
         with pkgs.nix-vscode-extensions.vscode-marketplace;
