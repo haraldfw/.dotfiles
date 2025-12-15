@@ -3,9 +3,9 @@
   imports = [
     ./alacritty.nix
     ./base.nix
+    ./development
     ./hyprland.nix
     ./librewolf.nix
-    ./vscodium.nix
     ./waybar.nix
     ./xdg.nix
     ./zsh.nix

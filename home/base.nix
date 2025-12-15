@@ -14,12 +14,5 @@
     gimp
     vlc
     dunst
-
-    go
-    bun
-    biome
-
-    godot
-    aseprite
   ];
 }

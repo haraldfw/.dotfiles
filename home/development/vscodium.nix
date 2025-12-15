@@ -202,7 +202,7 @@ in
       extensions =
         with pkgs.nix-vscode-extensions.vscode-marketplace;
         [
-          ms-vscode.cpptools
+          llvm-vs-code-extensions.vscode-clangd
         ]
         ++ extensions;
       globalSnippets = globalSnippets;
