@@ -158,7 +158,7 @@
         "$mainMod, mouse_down, workspace, e+1"
         "$mainMod, mouse_up, workspace, e-1"
 
-        ",PRINT, exec, hyprshot --freeze --mode region"
+        ",PRINT, exec, hyprshot --output-folder ~/pictures/screenshots/ --freeze --mode region"
       ];
 
       # # binds active in lockscreen
