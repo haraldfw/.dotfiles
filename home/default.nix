@@ -8,7 +8,7 @@
     ./librewolf.nix
     ./waybar.nix
     ./xdg.nix
-    ./zsh.nix
+    ./zsh
   ];
 
   home.stateVersion = "25.11";

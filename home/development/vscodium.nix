@@ -267,6 +267,18 @@ in
       keybindings = keybindings;
     };
 
+    profiles.python = {
+      extensions =
+        with pkgs.nix-vscode-extensions.vscode-marketplace;
+        [
+          ms-python.python
+        ]
+        ++ extensions;
+      globalSnippets = globalSnippets;
+      userSettings = userSettings;
+      keybindings = keybindings;
+    };
+
     profiles.rust = {
       extensions =
         with pkgs.nix-vscode-extensions.vscode-marketplace;
