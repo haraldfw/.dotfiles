@@ -1,14 +1,29 @@
-{ username, ... }:
+{ pkgs, username, ... }:
 {
   imports = [
     ./alacritty.nix
-    ./base.nix
     ./development
     ./hyprland.nix
     ./librewolf.nix
+    ./neovim
     ./waybar.nix
     ./xdg.nix
     ./zsh
+  ];
+
+  home.packages = with pkgs; [
+    webcord
+    steam
+    rusty-path-of-building
+    spotify
+
+    htop
+
+    ungoogled-chromium
+    libreoffice
+    gimp
+    vlc
+    dunst
   ];
 
   home.stateVersion = "25.11";

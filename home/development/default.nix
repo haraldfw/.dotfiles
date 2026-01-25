@@ -11,6 +11,7 @@
     bun
     biome
 
+    # gamedev
     godot
     aseprite
   ];
