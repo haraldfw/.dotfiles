@@ -34,8 +34,6 @@
       };
 
       general = {
-        "$mainMod" = "SUPER";
-
         gaps_in = 5;
         gaps_out = 20;
         border_size = 2;
@@ -60,7 +58,7 @@
         animate_manual_resizes = false;
         enable_swallow = true;
         focus_on_activate = true;
-        new_window_takes_over_fullscreen = 2;
+        on_focus_under_fullscreen = 2;
         middle_click_paste = false;
       };
 
@@ -113,50 +111,50 @@
 
       bind = [
         # show keybinds list
-        "$mainMod, F1, exec, show-keybinds"
+        "SUPER, F1, exec, show-keybinds"
 
-        "$mainMod, RETURN, exec, alacritty"
-        "$mainMod, W, killactive,"
-        "$mainMod, E, exec, dolphin"
-        "$mainMod, S, togglefloating,"
-        "$mainMod, SPACE, exec, rofi -theme gruvbox-dark.rasi -show combi -modes combi"
-        "$mainMod, J, togglesplit,"
-        "$mainMod ALT, ESCAPE, exit,"
-        "$mainMod,F,fullscreen "
+        "SUPER, RETURN, exec, alacritty"
+        "SUPER, W, killactive,"
+        "SUPER, E, exec, dolphin"
+        "SUPER, S, togglefloating,"
+        "SUPER, SPACE, exec, rofi -theme gruvbox-dark.rasi -show combi -modes combi"
+        "SUPER, J, togglesplit,"
+        "SUPER ALT, ESCAPE, exit,"
+        "SUPER,F,fullscreen "
 
-        "$mainMod, left, movefocus, l"
-        "$mainMod, right, movefocus, r"
-        "$mainMod, TAB, movefocus, r"
-        "$mainMod, up, movefocus, u"
-        "$mainMod, down, movefocus, d"
+        "SUPER, left, movefocus, l"
+        "SUPER, right, movefocus, r"
+        "SUPER, TAB, movefocus, r"
+        "SUPER, up, movefocus, u"
+        "SUPER, down, movefocus, d"
 
-        "$mainMod, 1, workspace, 1"
-        "$mainMod, 2, workspace, 2"
-        "$mainMod, 3, workspace, 3"
-        "$mainMod, 4, workspace, 4"
-        "$mainMod, 5, workspace, 5"
-        "$mainMod, 6, workspace, 6"
-        "$mainMod, 7, workspace, 7"
-        "$mainMod, 8, workspace, 8"
-        "$mainMod, 9, workspace, 9"
-        "$mainMod, 0, workspace, 10"
+        "SUPER, 1, workspace, 1"
+        "SUPER, 2, workspace, 2"
+        "SUPER, 3, workspace, 3"
+        "SUPER, 4, workspace, 4"
+        "SUPER, 5, workspace, 5"
+        "SUPER, 6, workspace, 6"
+        "SUPER, 7, workspace, 7"
+        "SUPER, 8, workspace, 8"
+        "SUPER, 9, workspace, 9"
+        "SUPER, 0, workspace, 10"
 
-        "$mainMod SHIFT, 1, movetoworkspacesilent, 1"
-        "$mainMod SHIFT, 2, movetoworkspacesilent, 2"
-        "$mainMod SHIFT, 3, movetoworkspacesilent, 3"
-        "$mainMod SHIFT, 4, movetoworkspacesilent, 4"
-        "$mainMod SHIFT, 5, movetoworkspacesilent, 5"
-        "$mainMod SHIFT, 6, movetoworkspacesilent, 6"
-        "$mainMod SHIFT, 7, movetoworkspacesilent, 7"
-        "$mainMod SHIFT, 8, movetoworkspacesilent, 8"
-        "$mainMod SHIFT, 9, movetoworkspacesilent, 9"
-        "$mainMod SHIFT, 0, movetoworkspacesilent, 10"
+        "SUPER SHIFT, 1, movetoworkspacesilent, 1"
+        "SUPER SHIFT, 2, movetoworkspacesilent, 2"
+        "SUPER SHIFT, 3, movetoworkspacesilent, 3"
+        "SUPER SHIFT, 4, movetoworkspacesilent, 4"
+        "SUPER SHIFT, 5, movetoworkspacesilent, 5"
+        "SUPER SHIFT, 6, movetoworkspacesilent, 6"
+        "SUPER SHIFT, 7, movetoworkspacesilent, 7"
+        "SUPER SHIFT, 8, movetoworkspacesilent, 8"
+        "SUPER SHIFT, 9, movetoworkspacesilent, 9"
+        "SUPER SHIFT, 0, movetoworkspacesilent, 10"
 
-        "$mainMod, V, togglespecialworkspace, magic"
-        "$mainMod SHIFT, V, movetoworkspace, special:magic"
+        "SUPER, V, togglespecialworkspace, magic"
+        "SUPER SHIFT, V, movetoworkspace, special:magic"
 
-        "$mainMod, mouse_down, workspace, e+1"
-        "$mainMod, mouse_up, workspace, e-1"
+        "SUPER, mouse_down, workspace, e+1"
+        "SUPER, mouse_up, workspace, e-1"
 
         ",PRINT, exec, hyprshot --output-folder ~/pictures/screenshots/ --freeze --mode region"
       ];
@@ -184,14 +182,8 @@
 
       # mouse binding
       bindm = [
-        "$mainMod, mouse:272, movewindow"
-        "$mainMod, mouse:273, resizewindow"
-      ];
-
-      # windowrule
-      windowrule = [
-        "suppressevent maximize, class:.*"
-        "nofocus,class:^$,title:^$,xwayland:1,fsilentloating:1,fullscreen:0,pinned:0"
+        "SUPER, mouse:272, movewindow"
+        "SUPER, mouse:273, resizewindow"
       ];
 
       # No gaps when only

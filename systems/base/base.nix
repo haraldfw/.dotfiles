@@ -1,12 +1,14 @@
 { pkgs, ... }:
 {
-
   nixpkgs.config.allowUnfree = true;
 
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
+
+  # 500 mebibytes
+  nix.settings.download-buffer-size = 524288000;
 
   environment.systemPackages = with pkgs; [
     home-manager

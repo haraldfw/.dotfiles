@@ -15,5 +15,11 @@
       pkgs.vimPlugins.telescope-nvim
       pkgs.vimPlugins.harpoon2
     ];
+
+    # waylandSupport = true;
+
+    initLua = ''
+      vim.opt.number = true;
+    '';
   };
 }
