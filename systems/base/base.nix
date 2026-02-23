@@ -7,8 +7,8 @@
     "flakes"
   ];
 
-  # 500 mebibytes
-  nix.settings.download-buffer-size = 524288000;
+  # 5 gibibytes
+  nix.settings.download-buffer-size = 5368709000;
 
   environment.systemPackages = with pkgs; [
     home-manager
