@@ -26,6 +26,8 @@
     cargo
     rustc
     gcc
+
+    tree-sitter
   ];
 
   services.openssh.enable = true;

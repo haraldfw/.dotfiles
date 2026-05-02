@@ -1,25 +1,25 @@
 { pkgs, ... }:
 {
+  programs.bottom = {
+    enable = true;
+  };
   programs.neovim = {
     enable = true;
     defaultEditor = true;
     vimAlias = true;
     vimdiffAlias = true;
+    withRuby = false;
+    withPython3 = true;
 
-    plugins = [
-      pkgs.vimPlugins.nvim-tree-lua
-      {
-        plugin = pkgs.vimPlugins.vim-startify;
-        config = "let g:startify_change_to_vcs_root = 0";
-      }
-      pkgs.vimPlugins.telescope-nvim
-      pkgs.vimPlugins.harpoon2
+    plugins = with pkgs.vimPlugins; [
+      nvim-tree-lua
+      telescope-nvim
+      harpoon2
+      lazygit-nvim
+      nvim-treesitter.withAllGrammars
     ];
 
     # waylandSupport = true;
 
-    initLua = ''
-      vim.opt.number = true;
-    '';
   };
 }
