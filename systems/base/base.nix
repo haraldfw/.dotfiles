@@ -28,6 +28,7 @@
     gcc
 
     tree-sitter
+    lua55Packages.luarocks
   ];
 
   services.openssh.enable = true;
