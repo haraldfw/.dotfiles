@@ -105,6 +105,9 @@
         enabled = false;
       };
 
+      ecosystem = {
+        no_update_news = true;
+      };
       binds = {
         movefocus_cycles_fullscreen = true;
       };
