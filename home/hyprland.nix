@@ -159,6 +159,7 @@
         "SUPER, mouse_down, workspace, e+1"
         "SUPER, mouse_up, workspace, e-1"
 
+        "SUPER SHIFT,S, exec, hyprshot --output-folder ~/pictures/screenshots/ --freeze --mode region"
         ",PRINT, exec, hyprshot --output-folder ~/pictures/screenshots/ --freeze --mode region"
       ];
 
