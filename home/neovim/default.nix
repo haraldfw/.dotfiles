@@ -3,6 +3,11 @@
   ...
 }:
 {
+  home.packages = with pkgs; [
+    tree-sitter
+    lua55Packages.luarocks
+  ];
+
   programs.lazygit = {
     enable = true;
   };
