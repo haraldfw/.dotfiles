@@ -5,7 +5,10 @@
 {
   home.packages = with pkgs; [
     tree-sitter
+    topiary
     lua55Packages.luarocks
+    lazygit
+    stylua
   ];
 
   programs.lazygit = {
@@ -23,13 +26,6 @@
     vimdiffAlias = true;
     withRuby = false;
     withPython3 = false;
-    plugins = with pkgs.vimPlugins; [
-      nvim-tree-lua
-      telescope-nvim
-      harpoon2
-      lazygit-nvim
-      nvim-treesitter.withAllGrammars
-    ];
 
     initLua = ''
       -- This file simply bootstraps the installation of Lazy.nvim and then calls other files for execution

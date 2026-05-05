@@ -17,6 +17,7 @@
     rusty-path-of-building
     spotify
 
+    imagemagick
     htop
 
     ungoogled-chromium
