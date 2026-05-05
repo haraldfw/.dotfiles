@@ -21,6 +21,7 @@
         "privacy.clearOnShutdown.history" = false;
         "privacy.clearOnShutdown.cookies" = false;
         "network.cookie.lifetimePolicy" = 0;
+	"librewolf.webgl.prompt.hide" = false;
       };
       ExtensionSettings = {
         "jid1-ZAdIEUB7XOzOJw@jetpack" = {
