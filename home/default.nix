@@ -5,7 +5,7 @@
     ./development
     ./hyprland.nix
     ./librewolf.nix
-    ./neovim
+    ./nixvim
     ./waybar.nix
     ./xdg.nix
     ./zsh

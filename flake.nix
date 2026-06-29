@@ -11,6 +11,7 @@
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
+    nixvim.url = "github:nix-community/nixvim";
 
     # hypr-contrib = {
     #   url = "github:hyprwm/contrib";
@@ -87,6 +88,7 @@
           };
         };
       };
+
       homeConfigurations = {
         ${username} = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
