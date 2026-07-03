@@ -22,6 +22,7 @@
     ripgrep
     iputils
     tmux
+    lshw
 
     cargo
     rustc
