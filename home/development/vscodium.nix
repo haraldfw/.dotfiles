@@ -187,9 +187,8 @@ let
   ];
 in
 {
-  programs.vscode = {
+  programs.vscodium = {
     enable = true;
-    package = pkgs.vscodium;
 
     profiles.default = {
       extensions = extensions;
@@ -257,6 +256,7 @@ in
         with pkgs.nix-vscode-extensions.vscode-marketplace;
         [
           jnoortheen.nix-ide
+          atomicspirit.nix-embedded-highlighter
         ]
         ++ extensions;
       globalSnippets = globalSnippets;

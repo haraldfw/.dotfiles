@@ -2,6 +2,7 @@
 {
   wayland.windowManager.hyprland = {
     enable = true;
+    configType = "hyprlang";
     settings = {
       # autostart
       exec-once = [
@@ -67,7 +68,6 @@
         special_scale_factor = 1.0;
         split_width_multiplier = 1.0;
         use_active_for_splits = true;
-        pseudotile = "yes";
         preserve_split = "yes";
       };
 
@@ -121,7 +121,7 @@
         "SUPER, E, exec, dolphin"
         "SUPER, S, togglefloating,"
         "SUPER, SPACE, exec, rofi -theme gruvbox-dark.rasi -show combi -modes combi"
-        "SUPER, J, togglesplit,"
+        "SUPER, J, layoutmsg, togglesplit"
         "SUPER ALT, ESCAPE, exit,"
         "SUPER,F,fullscreen "
 
