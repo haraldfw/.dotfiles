@@ -24,6 +24,8 @@
     gimp
     vlc
     dunst
+
+    brightnessctl
   ];
 
   home.stateVersion = "25.11";
