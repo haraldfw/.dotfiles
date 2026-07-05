@@ -1,5 +1,7 @@
 { ... }:
 {
+  programs.hyprlock.enable = true;
+
   wayland.windowManager.hyprland = {
     enable = true;
     configType = "hyprlang";
@@ -121,7 +123,7 @@
         "SUPER, E, exec, dolphin"
         "SUPER, S, togglefloating,"
         "SUPER, SPACE, exec, rofi -theme gruvbox-dark.rasi -show combi -modes combi"
-        "SUPER, J, layoutmsg, togglesplit"
+        "SUPER, R, layoutmsg, togglesplit"
         "SUPER ALT, ESCAPE, exit,"
         "SUPER,F,fullscreen "
 
@@ -160,6 +162,7 @@
         "SUPER, mouse_up, workspace, e-1"
 
         ",PRINT, exec, hyprshot --output-folder ~/pictures/screenshots/ --freeze --mode region"
+        "SUPER, L, exec, pactl set-sink-mute @DEFAULT_SINK@ 1 && hyprlock"
       ];
 
       # # binds active in lockscreen

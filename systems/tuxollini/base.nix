@@ -1,5 +1,4 @@
 {
-  config,
   lib,
   pkgs,
   ...
@@ -8,14 +7,16 @@
   time.timeZone = "Europe/Oslo";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  services.kanata= {
+  services.hypridle.enable = true;
+
+  services.kanata = {
     enable = true;
     keyboards = {
       "internal".config = ''
-      ;; defsrc is still necessary
-      (defsrc)
-      (deflayermap (base-layer)
-        caps esc)
+        ;; defsrc is still necessary
+        (defsrc)
+        (deflayermap (base-layer)
+          caps esc)
       '';
     };
   };
@@ -46,7 +47,9 @@
       intel-compute-runtime
     ];
   };
-  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; };
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "iHD";
+  };
 
   powerManagement.cpuFreqGovernor = "performance";
 }
