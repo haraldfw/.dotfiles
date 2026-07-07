@@ -13,7 +13,6 @@
         "browser.theme.content-theme" = 0;
         "browser.theme.toolbar-theme" = 0;
         "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
-        "extensions.autoDisableScopes" = 0;
 
         "cookiebanners.service.mode.privateBrowsing" = 2;
         "cookiebanners.service.mode" = 2;
