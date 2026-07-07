@@ -94,6 +94,10 @@ let
       "when" = "editorFocus";
     }
     {
+      "key" = "ctrl+p";
+      "command" = "-extension.vim_ctrl+p";
+    }
+    {
       "key" = "ctrl+d";
       "command" = "-notebook.addFindMatchToSelection";
       "when" =
