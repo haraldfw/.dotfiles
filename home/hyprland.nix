@@ -1,7 +1,40 @@
 { ... }:
 {
+  programs.hyprlock.enable = true;
+
+  services.hypridle = {
+    enable = true;
+    settings = {
+      general = {
+        lock_cmd = "pidof hyprlock || hyprlock";
+        before_sleep_cmd = "loginctl lock-session";
+        after_sleep_cmd = "hyprctl dispatch dpms on";
+      };
+
+      listener = [
+        {
+          timeout = 150;
+          on-timeout = "brightnessctl -s set 10";
+          on-resume = "brightnessctl -r";
+        }
+
+        {
+          timeout = 300;
+          on-timeout = "loginctl lock-session";
+        }
+
+        {
+          timeout = 330;
+          on-timeout = "hyprctl dispatch dpms off";
+          on-resume = "hyprctl dispatch dpms on && brightnessctl -r";
+        }
+      ];
+    };
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
+    configType = "hyprlang";
     settings = {
       # autostart
       exec-once = [
@@ -67,7 +100,6 @@
         special_scale_factor = 1.0;
         split_width_multiplier = 1.0;
         use_active_for_splits = true;
-        pseudotile = "yes";
         preserve_split = "yes";
       };
 
@@ -121,7 +153,7 @@
         "SUPER, E, exec, dolphin"
         "SUPER, S, togglefloating,"
         "SUPER, SPACE, exec, rofi -theme gruvbox-dark.rasi -show combi -modes combi"
-        "SUPER, J, togglesplit,"
+        "SUPER, R, layoutmsg, togglesplit"
         "SUPER ALT, ESCAPE, exit,"
         "SUPER,F,fullscreen "
 
@@ -161,6 +193,7 @@
 
         "SUPER SHIFT,S, exec, hyprshot --output-folder ~/pictures/screenshots/ --freeze --mode region"
         ",PRINT, exec, hyprshot --output-folder ~/pictures/screenshots/ --freeze --mode region"
+        "SUPER, L, exec, pactl set-sink-mute @DEFAULT_SINK@ 1 && hyprlock"
       ];
 
       # # binds active in lockscreen

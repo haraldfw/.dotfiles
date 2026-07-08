@@ -6,9 +6,13 @@
     hyprland
     waybar
     hyprshot
+    hypridle
+    hyprlock
+    nordzy-cursor-theme
+
     rofi
     pavucontrol
-    nordzy-cursor-theme
+
     eog
     kdePackages.dolphin
   ];
@@ -30,7 +34,6 @@
       enable = true;
       # hidpi = true;
     };
-    # enableNvidiaPatches = false;
     # systemd.enable = true;
   };
 }

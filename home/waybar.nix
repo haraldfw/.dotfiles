@@ -21,6 +21,7 @@
           "cpu"
           "memory"
           "tray"
+          "battery"
           "clock"
         ];
         "hyprland/workspaces" = {
@@ -59,6 +60,23 @@
         };
         memory = {
           format = "{}% ";
+        };
+        battery = {
+          format = "{capacity}% {icon}";
+          states = {
+            "good" = 95;
+            "warning" = 30;
+            "critical" = 15;
+          };
+          "format-full" = "{capacity}% {icon}";
+          "format-charging" = "{capacity}% {icon} ⚡";
+          "format-plugged" = "{capacity}% {icon} ⚡";
+          "format-alt" = "{time} {icon}";
+          "format-icons" = [
+            "🪫"
+            "🔋"
+          ];
+
         };
         network = {
           # "interface"="wlp2*", # (Optional) To force the use of this interface
