@@ -3,7 +3,7 @@
   imports = [
     ./alacritty.nix
     ./development
-    ./hyprland.nix
+    ./hyprland
     ./librewolf.nix
     ./neovim
     ./waybar.nix
@@ -16,8 +16,6 @@
     steam
     rusty-path-of-building
     spotify
-
-    htop
 
     ungoogled-chromium
     libreoffice

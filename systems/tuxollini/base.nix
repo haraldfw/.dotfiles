@@ -25,6 +25,7 @@
       layout = "us";
       variant = "altgr-intl";
     };
+    videoDrivers = [ "modesetting" ];
   };
 
   boot.loader.systemd-boot.enable = true;
@@ -35,7 +36,6 @@
     networkmanager.enable = true;
   };
 
-  services.xserver.videoDrivers = [ "modesetting" ];
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
@@ -49,7 +49,7 @@
     LIBVA_DRIVER_NAME = "iHD";
   };
 
-  powerManagement.cpuFreqGovernor = "performance";
+  services.power-profiles-daemon.enable = true;
 
   swapDevices = [
     {

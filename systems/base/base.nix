@@ -16,13 +16,17 @@
     nil
     nixfmt
     nix-search-cli
-    wget
+
     gnumake
     busybox
     ripgrep
-    iputils
     tmux
+
+    wget
     lshw
+    htop
+    iputils
+    lm_sensors
 
     cargo
     rustc

@@ -9,6 +9,7 @@
   services.xserver.xkb = {
     layout = "us";
     variant = "altgr-intl";
+    videoDrivers = [ "nvidia" ];
   };
 
   boot.loader.systemd-boot.enable = true;
@@ -20,8 +21,6 @@
   hardware.graphics = {
     enable = true;
   };
-
-  services.xserver.videoDrivers = [ "nvidia" ];
 
   powerManagement.cpuFreqGovernor = "performance";
 
