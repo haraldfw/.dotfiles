@@ -16,6 +16,7 @@
     steam
     rusty-path-of-building
     spotify
+    imagemagick
 
     ungoogled-chromium
     libreoffice
