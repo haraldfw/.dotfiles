@@ -223,14 +223,20 @@
         "SUPER, mouse:273, resizewindow"
       ];
 
-      # No gaps when only
+      # Set gaps to when when only one window/group, or if fullscreen
       workspace = [
         "w[t1], gapsout:0, gapsin:0"
         "w[tg1], gapsout:0, gapsin:0"
         "f[1], gapsout:0, gapsin:0"
       ];
 
-      monitor = [ "DP-2,3440x1440@100.00Hz, auto, auto" ];
+      # fallback rule for unmatched monitors
+      monitor = ",preferred, auto, auto";
+
+      extraConfig = ''
+        # Source the auto-generated monitors configuration
+        source = ~/.config/hypr/monitors.conf
+      '';
     };
   };
 }

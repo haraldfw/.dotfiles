@@ -1,0 +1,19 @@
+[general]
+destination = "$HOME/.config/hypr/monitors.conf"
+debounce_time_ms = 1500
+pre_apply_exec = "notify-send 'Switching profile...'"
+post_apply_exec = "notify-send 'Profile applied'"
+
+
+[profiles.dock]
+config_file = "$HOME/.config/hyprdynamicmonitors/hyprconfigs/dock.go.tmpl"
+config_file_type = "template"
+[profiles.dock.conditions]
+
+[[profiles.dock.conditions.required_monitors]]
+description = "LG Display 0x0778"
+monitor_tag = "monitor0"
+
+[[profiles.dock.conditions.required_monitors]]
+description = "AOC AG352UCG 0x01010101"
+monitor_tag = "monitor1"

@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    hyprdynamicmonitors.url = "github:fiffeek/hyprdynamicmonitors";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -51,6 +52,7 @@
       nixpkgs,
       home-manager,
       nix-vscode-extensions,
+      hyprdynamicmonitors,
       ...
     }@inputs:
     let
@@ -80,7 +82,9 @@
         };
         tuxollini = lib.nixosSystem {
           inherit system;
-          modules = [ ./systems/tuxollini ];
+          modules = [
+            ./systems/tuxollini
+          ];
           specialArgs = {
             host = "tuxollini";
             inherit self inputs username;
@@ -90,9 +94,12 @@
       homeConfigurations = {
         ${username} = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./home ];
+          modules = [
+            hyprdynamicmonitors.homeManagerModules.default
+            ./home
+          ];
           extraSpecialArgs = {
-            inherit inputs username;
+            inherit inputs username system;
           };
         };
       };
