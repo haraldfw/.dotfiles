@@ -17,3 +17,13 @@ monitor_tag = "monitor0"
 [[profiles.dock.conditions.required_monitors]]
 description = "AOC AG352UCG 0x01010101"
 monitor_tag = "monitor1"
+
+
+[profiles.tux-home]
+config_file = "/tmp/hyprdynamicmonitors/hyprconfigs/tux-home.go.tmpl"
+config_file_type = "template"
+[profiles.tux-home.conditions]
+
+[[profiles.tux-home.conditions.required_monitors]]
+description = "AOC AG352UCG #ASNWvp9ciuvd"
+monitor_tag = "monitor0"
