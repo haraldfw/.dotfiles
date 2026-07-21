@@ -4,12 +4,15 @@
     wayland
     xwayland
     hyprland
+
     waybar
     hyprshot
     hypridle
     hyprlock
-    nordzy-cursor-theme
 
+    brightnessctl
+    dunst
+    nordzy-cursor-theme
     rofi
     pavucontrol
 
