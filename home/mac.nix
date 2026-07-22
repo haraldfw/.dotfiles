@@ -2,8 +2,9 @@
 {
   imports = [
     # ./modules/additional-packages.nix
-    # ./modules/development
-    # ./modules/neovim
+    ./modules/development/additional-packages.nix
+    ./modules/development/neovim
+    ./modules/glide-browser
     ./modules/zsh
     ./modules/alacritty.nix
     # ./modules/librewolf

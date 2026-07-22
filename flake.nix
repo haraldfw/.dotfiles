@@ -19,6 +19,17 @@
       url = "github:nix-darwin/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    glide = {
+      url = "github:glide-browser/glide.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
+    mac-app-util = {
+      url = "github:hraban/mac-app-util";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -29,6 +40,7 @@
       nix-vscode-extensions,
       hyprdynamicmonitors,
       nix-darwin,
+      glide,
       ...
     }@inputs:
     let
@@ -88,6 +100,7 @@
           system = hosts.nixbook.system;
           modules = [
             ./systems/nixbook
+            inputs.mac-app-util.darwinModules.default
             home-manager.darwinModules.home-manager
             {
               home-manager.extraSpecialArgs = {
@@ -96,6 +109,10 @@
                 system = hosts.nixbook.system;
               };
               home-manager.backupFileExtension = "pre-home-manager";
+              home-manager.sharedModules = [
+                inputs.glide.homeModules.default
+                inputs.mac-app-util.homeManagerModules.default
+              ];
               home-manager.users.${hosts.nixbook.username} = import ./home/mac.nix;
             }
           ];
@@ -111,6 +128,7 @@
         "${hosts.tux.username}@tux" = home-manager.lib.homeManagerConfiguration {
           pkgs = pkgsFor hosts.tux.system;
           modules = [
+            inputs.glide.homeModules.default
             hyprdynamicmonitors.homeManagerModules.default
             ./home/linux.nix
           ];
@@ -123,6 +141,7 @@
         "${hosts.tuxollini.username}@tuxollini" = home-manager.lib.homeManagerConfiguration {
           pkgs = pkgsFor hosts.tuxollini.system;
           modules = [
+            inputs.glide.homeModules.default
             hyprdynamicmonitors.homeManagerModules.default
             ./home/linux.nix
           ];
@@ -136,6 +155,8 @@
         "${hosts.nixbook.username}@nixbook" = home-manager.lib.homeManagerConfiguration {
           pkgs = pkgsFor hosts.nixbook.system;
           modules = [
+            inputs.glide.homeModules.default
+            inputs.mac-app-util.homeManagerModules.default
             ./home/mac.nix
           ];
           extraSpecialArgs = {
