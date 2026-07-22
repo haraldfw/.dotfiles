@@ -12,13 +12,19 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
-    completionInit = ''
+    initContent = ''
       bindkey "^[[1;5C" forward-word
       bindkey "^[[1;5D" backward-word
-      bindkey '^R' history-incremental-search-backward
-    '';
+      bindkey "^R" history-incremental-search-backward
 
-    initContent = "source ~/.p10k.zsh";
+      # mac stuff
+      bindkey "^[[H" beginning-of-line
+      bindkey "^[[F" end-of-line
+      bindkey "^[[3~" delete-char
+      bindkey "^[[3;5~" delete-word
+
+      source ~/.p10k.zsh
+    '';
 
     plugins = [
       {

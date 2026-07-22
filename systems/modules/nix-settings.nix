@@ -1,5 +1,13 @@
 { pkgs, ... }:
 {
+  environment.systemPackages = with pkgs; [
+    home-manager
+    git
+    nil
+    nixfmt
+    nix-search-cli
+  ];
+
   nixpkgs.config.allowUnfree = true;
 
   nix.settings.experimental-features = [
