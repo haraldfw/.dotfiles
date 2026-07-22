@@ -2,12 +2,13 @@
 {
   imports = [
     # ./modules/additional-packages.nix
+    ./modules/alacritty.nix
     ./modules/development/additional-packages.nix
     ./modules/development/neovim
     ./modules/glide-browser
-    ./modules/zsh
-    ./modules/alacritty.nix
+    ./modules/keyboard-layout-mac
     # ./modules/librewolf
+    ./modules/zsh
   ];
 
   # until we have completely replaced all packages maintained by homebrew we have to reference them.
