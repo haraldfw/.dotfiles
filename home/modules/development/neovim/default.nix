@@ -30,6 +30,9 @@
     plugins = with pkgs.vimPlugins; [
       plenary-nvim
 
+      obsidian-nvim
+      render-markdown-nvim
+
       # --- Colorscheme ---
       monokai-pro-nvim
 
@@ -125,6 +128,7 @@
         { "<leader>d", group = "Debug (DAP)" },
         { "<leader>t", group = "Train motions" },
         { "<leader>g", group = "Git" },
+        { "<leader>o", group = "Obsidian" },
       }
 
       require("lint").linters_by_ft = {
@@ -287,6 +291,35 @@
       vim.keymap.set("n", "<leader>tu", ":TrainUpDown<CR>", { desc = "Train up/down motions" })
       vim.keymap.set("n", "<leader>tw", ":TrainWord<CR>", { desc = "Train word motions" })
       vim.keymap.set("n", "<leader>to", ":TrainTextObj<CR>", { desc = "Train text-object motions" })
+
+      -- obsidian.nvim
+      require("obsidian").setup {
+        legacy_commands = false,
+
+        ui = {
+          enable = false,
+        },
+
+        workspaces = {
+          {
+            name = "main",
+            path = "~/notes",
+          },
+        },
+
+        daily_notes = {
+          folder = "dailies",
+        },
+      }
+
+      require("render-markdown").setup {
+        preset = "obsidian",
+      }
+
+      vim.keymap.set("n", "<leader>oo", ":Obsidian<CR>", { desc = "Obsidian menu" })
+      vim.keymap.set("n", "<leader>on", ":Obsidian new<CR>", { desc = "New note" })
+      vim.keymap.set("n", "<leader>os", ":Obsidian search<CR>", { desc = "Search notes" })
+      vim.keymap.set("n", "<leader>ot", ":Obsidian today<CR>", { desc = "Today's daily note" })
     '';
   };
 }

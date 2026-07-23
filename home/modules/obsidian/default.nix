@@ -7,7 +7,12 @@
     vaults."Documents/Obsidian/main".enable = true;
 
     defaultSettings = {
-      app.defaultViewMode = "preview";
+      app = {
+        defaultViewMode = "preview";
+        vimMode = true;
+        showLineNumber = true;
+      };
+
       corePlugins = [
         "file-explorer"
         "global-search"
@@ -20,6 +25,18 @@
         "templates"
         "note-composer"
       ];
+
+      hotkeys = {
+        "command-palette:open" = [
+          {
+            modifiers = [
+              "Ctrl"
+              "Shift"
+            ];
+            key = "P";
+          }
+        ];
+      };
     };
   };
 }
