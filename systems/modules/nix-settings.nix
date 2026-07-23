@@ -3,7 +3,7 @@
   environment.systemPackages = with pkgs; [
     home-manager
     git
-    nil
+    nixd
     nixfmt
     nix-search-cli
   ];
