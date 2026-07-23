@@ -37,4 +37,12 @@
       "font-fira-code-nerd-font"
     ];
   };
+
+  services.jankyborders = {
+    enable = true;
+    active_color = "0xee00ff99";
+    inactive_color = "0xaa595959";
+    width = 7.0;
+    style = "round";
+  };
 }

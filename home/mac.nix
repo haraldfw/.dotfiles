@@ -10,6 +10,7 @@
     ./modules/obsidian
     # ./modules/librewolf
     ./modules/zsh
+    ./modules/aerospace
   ];
 
   # until we have completely replaced all packages maintained by homebrew we have to reference them.
