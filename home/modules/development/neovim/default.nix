@@ -10,7 +10,10 @@
     withPython3 = false;
 
     extraPackages = with pkgs; [
-      nil
+      nixd
+      statix
+      deadnix
+
       lua-language-server
       pyright
       typescript-language-server
@@ -78,6 +81,8 @@
       nvim-autopairs
       nvim-surround
 
+      nvim-lint
+
       train-nvim
       mini-ai
       mini-files
@@ -104,9 +109,6 @@
       vim.opt.splitright = true
       vim.opt.splitbelow = true
 
-      -- ============================================================
-      -- Colorscheme: Monokai Pro
-      -- ============================================================
       require("monokai-pro").setup {
         filter = "classic", -- other options: "octagon", "pro", "machine", "ristretto", "spectrum"
       }
@@ -117,6 +119,23 @@
       }
 
       require("which-key").setup {}
+
+      require("which-key").add {
+        { "<leader>f", group = "Find (Telescope)" },
+        { "<leader>d", group = "Debug (DAP)" },
+        { "<leader>t", group = "Train motions" },
+        { "<leader>g", group = "Git" },
+      }
+
+      require("lint").linters_by_ft = {
+        nix = { "statix", "deadnix" },
+      }
+
+      vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+        callback = function()
+          require("lint").try_lint()
+        end,
+      })
 
       require("nvim-treesitter").setup {}
 
@@ -161,16 +180,6 @@
         }),
       }
 
-      local on_attach = function(_, bufnr)
-        local opts = { buffer = bufnr }
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-        vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-        vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
-      end
-
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       -- Apply shared settings to every server via the wildcard config
@@ -178,19 +187,40 @@
         capabilities = capabilities,
       })
 
+      vim.lsp.config("nixd", {
+        settings = {
+          nixd = {
+            nixpkgs = {
+              expr = "import <nixpkgs> { }",
+            },
+            formatting = {
+              command = { "nixfmt" },
+            },
+            options = {
+              nixos = {
+                expr = '(builtins.getFlake "/Users/harald.wilhelmsen/.dotfiles").nixosConfigurations.tux.options',
+              },
+              home_manager = {
+                expr = '(builtins.getFlake "/Users/harald.wilhelmsen/.dotfiles").homeConfigurations."haraldfw@tux".options',
+              },
+            },
+          },
+        },
+      })
+
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(ev)
           local opts = { buffer = ev.buf }
-          vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-          vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-          vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-          vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-          vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-          vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
+          vim.keymap.set("n", "gd", vim.lsp.buf.definition, vim.tbl_extend("force", opts, { desc = "Go to definition" }))
+          vim.keymap.set("n", "gr", vim.lsp.buf.references, vim.tbl_extend("force", opts, { desc = "Show references" }))
+          vim.keymap.set("n", "K", vim.lsp.buf.hover, vim.tbl_extend("force", opts, { desc = "Hover documentation" }))
+          vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Rename symbol" }))
+          vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code action" }))
+          vim.keymap.set("n", "<leader>dd", vim.diagnostic.open_float, vim.tbl_extend("force", opts, { desc = "Show diagnostic" }))
         end,
       })
 
-      local servers = { "nil_ls", "lua_ls", "pyright", "ts_ls", "rust_analyzer", "gopls" }
+      local servers = { "nixd", "lua_ls", "pyright", "ts_ls", "rust_analyzer", "gopls" }
       vim.lsp.enable(servers)
 
       require("conform").setup {
@@ -209,14 +239,14 @@
       require("telescope").load_extension("fzf")
 
       local builtin = require("telescope.builtin")
-      vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
-      vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-      vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
-      vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
+      vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
+      vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Live grep" })
+      vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find buffers" })
+      vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help tags" })
 
       require("gitsigns").setup {}
       require("neogit").setup {}
-      vim.keymap.set("n", "<leader>gg", ":Neogit<CR>", {})
+      vim.keymap.set("n", "<leader>gg", ":Neogit<CR>", { desc = "Open Neogit" })
 
       local dap, dapui = require("dap"), require("dapui")
       dapui.setup {}
@@ -231,10 +261,10 @@
         dapui.close()
       end
 
-      vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, {})
-      vim.keymap.set("n", "<leader>dc", dap.continue, {})
-      vim.keymap.set("n", "<leader>di", dap.step_into, {})
-      vim.keymap.set("n", "<leader>do", dap.step_over, {})
+      vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "Toggle breakpoint" })
+      vim.keymap.set("n", "<leader>dc", dap.continue, { desc = "Continue" })
+      vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "Step into" })
+      vim.keymap.set("n", "<leader>do", dap.step_over, { desc = "Step over" })
 
       require("nvim-autopairs").setup {}
       require("nvim-surround").setup {}
@@ -249,14 +279,14 @@
       require("mini.files").setup {}
       vim.keymap.set("n", "<leader>e", function()
         require("mini.files").open()
-      end, {})
+      end, { desc = "Open file explorer" })
 
       require("mini.starter").setup {}
 
       -- train.nvim
-      vim.keymap.set("n", "<leader>tu", ":TrainUpDown<CR>", {})
-      vim.keymap.set("n", "<leader>tw", ":TrainWord<CR>", {})
-      vim.keymap.set("n", "<leader>to", ":TrainTextObj<CR>", {})
+      vim.keymap.set("n", "<leader>tu", ":TrainUpDown<CR>", { desc = "Train up/down motions" })
+      vim.keymap.set("n", "<leader>tw", ":TrainWord<CR>", { desc = "Train word motions" })
+      vim.keymap.set("n", "<leader>to", ":TrainTextObj<CR>", { desc = "Train text-object motions" })
     '';
   };
 }
