@@ -1,10 +1,10 @@
 {
-  config,
   lib,
   ...
 }:
 {
   imports = [
+    ../modules/additional-packages.nix
     ../modules/nix-settings.nix
   ];
 
@@ -17,5 +17,24 @@
   users.users."harald.wilhelmsen" = {
     name = "harald.wilhelmsen";
     home = "/Users/harald.wilhelmsen";
+  };
+
+  homebrew = {
+    enable = true;
+
+    onActivation = {
+      autoUpdate = true;
+      upgrade = true;
+      # do not remove non-nix-managed homebrew-packages
+      cleanup = "none";
+    };
+
+    taps = [ ];
+    brews = [ ];
+    casks = [
+      "dbeaver-community"
+      "obsidian"
+      "font-fira-code-nerd-font"
+    ];
   };
 }

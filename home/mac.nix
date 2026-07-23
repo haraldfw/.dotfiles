@@ -7,6 +7,7 @@
     ./modules/development/neovim
     ./modules/glide-browser
     ./modules/keyboard-layout-mac
+    ./modules/obsidian
     # ./modules/librewolf
     ./modules/zsh
   ];
