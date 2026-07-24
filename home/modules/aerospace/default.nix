@@ -74,7 +74,7 @@
         "alt-shift-semicolon" = "mode service";
         "alt-shift-r" = "reload-config";
 
-        "alt-enter" = "exec-and-forget open -a Alacritty";
+        "alt-enter" = "exec-and-forget open -na Alacritty";
       };
 
       mode.service.binding = {
