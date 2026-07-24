@@ -8,7 +8,7 @@
       config-version = 2;
 
       start-at-login = true;
-      accordion-padding = 30;
+      accordion-padding = 15;
       default-root-container-layout = "tiles";
       default-root-container-orientation = "auto";
       automatically-unhide-macos-hidden-apps = true;
@@ -25,6 +25,8 @@
       key-mapping.preset = "qwerty";
 
       mode.main.binding = {
+        "alt-w" = "close";
+
         "alt-h" = "focus left";
         "alt-j" = "focus down";
         "alt-k" = "focus up";
@@ -52,6 +54,7 @@
         "alt-7" = "workspace 7";
         "alt-8" = "workspace 8";
         "alt-9" = "workspace 9";
+        "alt-0" = "workspace 10";
 
         "alt-shift-1" = "move-node-to-workspace 1";
         "alt-shift-2" = "move-node-to-workspace 2";
@@ -62,6 +65,7 @@
         "alt-shift-7" = "move-node-to-workspace 7";
         "alt-shift-8" = "move-node-to-workspace 8";
         "alt-shift-9" = "move-node-to-workspace 9";
+        "alt-shift-0" = "move-node-to-workspace 10";
 
         "alt-tab" = "focus dfs-next --boundaries workspace --boundaries-action wrap-around-the-workspace";
         "alt-shift-tab" =
@@ -69,6 +73,8 @@
 
         "alt-shift-semicolon" = "mode service";
         "alt-shift-r" = "reload-config";
+
+        "alt-enter" = "exec-and-forget open -a Alacritty";
       };
 
       mode.service.binding = {
@@ -100,6 +106,7 @@
         "7" = "secondary";
         "8" = "secondary";
         "9" = "secondary";
+        "10" = "secondary";
       };
     };
   };
