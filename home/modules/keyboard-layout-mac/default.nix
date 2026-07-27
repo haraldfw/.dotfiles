@@ -4,7 +4,7 @@
     $DRY_RUN_CMD mkdir -p "${config.home.homeDirectory}/Library/Keyboard Layouts"
     $DRY_RUN_CMD chmod -R u+w "${config.home.homeDirectory}/Library/Keyboard Layouts/us-intl-no-dead-keys.bundle" 2>/dev/null || true
     $DRY_RUN_CMD rm -rf "${config.home.homeDirectory}/Library/Keyboard Layouts/us-intl-no-dead-keys.bundle"
-    $DRY_RUN_CMD cp -RL ${../../files/keyboard-layouts/us-intl-no-dead-keys.bundle} "${config.home.homeDirectory}/Library/Keyboard Layouts/us-intl-no-dead-keys.bundle"
+    $DRY_RUN_CMD cp -RL ${./us-intl-no-dead-keys.bundle} "${config.home.homeDirectory}/Library/Keyboard Layouts/us-intl-no-dead-keys.bundle"
     $DRY_RUN_CMD chmod -R u+w "${config.home.homeDirectory}/Library/Keyboard Layouts/us-intl-no-dead-keys.bundle"
   '';
 }

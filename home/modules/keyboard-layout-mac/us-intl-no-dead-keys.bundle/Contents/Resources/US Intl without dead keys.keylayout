@@ -8,6 +8,7 @@
 
 -->
 <!--Last edited by Ukelele version 452 on 2025-11-25 at 08:58 (GMT+1)-->
+<!--Last edited manually -->
 <keyboard group="126" id="-32611" name="US Intl without dead keys" maxout="1">
     <layouts>
         <layout first="0" last="17" mapSet="16c" modifiers="f4"/>

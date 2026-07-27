@@ -30,7 +30,9 @@
     };
 
     taps = [ ];
-    brews = [ ];
+    brews = [
+      "showkey"
+    ];
     casks = [
       "dbeaver-community"
       "obsidian"
