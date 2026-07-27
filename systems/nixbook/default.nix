@@ -25,7 +25,7 @@
     onActivation = {
       autoUpdate = true;
       upgrade = true;
-      # do not remove non-nix-managed homebrew-packages
+      # remove non-nix-managed homebrew packages
       cleanup = "zap";
     };
 
