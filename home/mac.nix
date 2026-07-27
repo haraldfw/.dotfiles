@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ username, ... }:
 {
   imports = [
     # ./modules/additional-packages.nix
@@ -11,6 +11,7 @@
     # ./modules/librewolf
     ./modules/zsh
     ./modules/aerospace
+    ./modules/kubernetes-mac
   ];
 
   # until we have completely replaced all packages maintained by homebrew we have to reference them.

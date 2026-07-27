@@ -35,8 +35,9 @@
     ];
     casks = [
       "dbeaver-community"
-      "obsidian"
+      "displaylink"
       "font-fira-code-nerd-font"
+      "obsidian"
     ];
   };
 
