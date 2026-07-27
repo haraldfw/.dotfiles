@@ -32,12 +32,15 @@
     taps = [ ];
     brews = [
       "showkey"
+      "sqlite"
     ];
     casks = [
       "dbeaver-community"
+      "drawio"
       "displaylink"
       "font-fira-code-nerd-font"
       "obsidian"
+      "vscodium"
     ];
   };
 
