@@ -26,13 +26,19 @@
       autoUpdate = true;
       upgrade = true;
       # do not remove non-nix-managed homebrew-packages
-      cleanup = "none";
+      cleanup = "zap";
     };
 
-    taps = [ ];
+    taps = [
+      {
+        name = "hashicorp/tap";
+        trusted = true;
+      }
+    ];
     brews = [
       "showkey"
       "sqlite"
+      "vault"
     ];
     casks = [
       "dbeaver-community"
