@@ -25,6 +25,9 @@
       black
       ripgrep
       fd
+
+      golangci-lint
+      golangci-lint-langserver
     ];
 
     plugins = with pkgs.vimPlugins; [
@@ -99,8 +102,8 @@
       vim.opt.number = true
       vim.opt.relativenumber = true
       vim.opt.expandtab = true
-      vim.opt.shiftwidth = 2
-      vim.opt.tabstop = 2
+      vim.opt.shiftwidth = 4
+      vim.opt.tabstop = 4
       vim.opt.smartindent = true
       vim.opt.wrap = false
       vim.opt.ignorecase = true
@@ -111,6 +114,16 @@
       vim.opt.updatetime = 250
       vim.opt.splitright = true
       vim.opt.splitbelow = true
+
+      vim.opt.list = true
+      vim.opt.listchars = {
+        tab = "→ ",
+        trail = "·",
+        nbsp = "␣",
+        extends = "…",
+        precedes = "…",
+        space = "·",
+      }
 
       require("monokai-pro").setup {
         filter = "classic", -- other options: "octagon", "pro", "machine", "ristretto", "spectrum"
@@ -211,6 +224,20 @@
           },
         },
       })
+      vim.lsp.config("golangci_lint_ls", {
+        cmd = { "golangci-lint-langserver" },
+        root_markers = { ".git", "go.mod" },
+        init_options = {
+          command = {
+            "golangci-lint",
+            "run",
+            "--output.json.path", "stdout",
+            "--show-stats=false",
+            "--issues-exit-code=1",
+          },
+        },
+      })
+
 
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(ev)
@@ -224,8 +251,7 @@
         end,
       })
 
-      local servers = { "nixd", "lua_ls", "pyright", "ts_ls", "rust_analyzer", "gopls" }
-      vim.lsp.enable(servers)
+      vim.lsp.enable({ "nixd", "lua_ls", "pyright", "ts_ls", "rust_analyzer", "gopls", "golangci_lint_ls" })
 
       require("conform").setup {
         formatters_by_ft = {
