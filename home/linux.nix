@@ -9,6 +9,7 @@
     ./modules/development/additional-packages.nix
     ./modules/development/neovim
     ./modules/development/vscodium
+    ./modules/obsidian
     ./modules/zsh
     ./modules/alacritty.nix
     ./modules/librewolf.nix

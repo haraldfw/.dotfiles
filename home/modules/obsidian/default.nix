@@ -4,8 +4,6 @@
     enable = true;
     package = if pkgs.stdenv.isDarwin then null else pkgs.obsidian;
 
-    vaults."Documents/Obsidian/main".enable = true;
-
     defaultSettings = {
       app = {
         defaultViewMode = "preview";
@@ -14,6 +12,17 @@
       };
 
       corePlugins = [
+        {
+          name = "daily-notes";
+          settings = {
+            folder = "Daily";
+            format = "YYYY-MM-DD";
+          };
+        }
+        {
+          name = "templates";
+          settings.folder = "Templates";
+        }
         "file-explorer"
         "global-search"
         "switcher"
@@ -22,7 +31,6 @@
         "outgoing-link"
         "command-palette"
         "editor-status"
-        "templates"
         "note-composer"
       ];
 

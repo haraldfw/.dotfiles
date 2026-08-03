@@ -63,6 +63,7 @@
 
         touchpad = {
           natural_scroll = false;
+          clickfinger_behavior = 1;
         };
       };
 
