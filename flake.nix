@@ -58,6 +58,9 @@
           config.permittedInsecurePackages = [
             "electron-36.9.5"
           ];
+          overlays = [
+            nix-vscode-extensions.overlays.default
+          ];
         };
       pkgsFor = system: mkPkgs system;
 

@@ -6,7 +6,7 @@
       env.TERM = "xterm-256color";
 
       font = {
-        size = 16;
+        size = 12;
         normal.family = "FiraCode Nerd Font";
       };
 

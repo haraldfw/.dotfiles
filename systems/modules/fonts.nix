@@ -12,11 +12,7 @@
       };
     };
     packages = with pkgs; [
-      fira-code
-      fira-code-symbols
-      noto-fonts
-      noto-fonts-color-emoji
-      font-awesome
+      nerd-fonts.fira-code
     ];
   };
 }
