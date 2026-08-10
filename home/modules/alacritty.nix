@@ -1,12 +1,19 @@
-{ ... }:
+{ pkgs, ... }:
 {
-  config.programs.alacritty = {
+  programs.alacritty = {
     enable = true;
     settings = {
       env.TERM = "xterm-256color";
 
+      # needs to be set as the default differs on linux and mac,
+      # and this config is shared between both platforms
+      terminal.shell = {
+        program = "${pkgs.zsh}/bin/zsh";
+        args = [ "-i" ];
+      };
+
       font = {
-        size = 12;
+        size = if pkgs.stdenv.isDarwin then 14 else 12;
         normal.family = "FiraCode Nerd Font";
       };
 
