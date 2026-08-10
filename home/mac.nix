@@ -14,8 +14,6 @@
     ./modules/kubernetes-mac
   ];
 
-  # until we have completely replaced all packages maintained by homebrew we have to reference them.
-  # This adds them to path
   home.sessionPath = [
     "/opt/homebrew/bin"
     "/Users/${username}/go/bin"
