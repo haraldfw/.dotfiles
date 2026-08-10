@@ -266,7 +266,7 @@ in
       globalSnippets = globalSnippets;
       userSettings = userSettings // {
         "nix.enableLanguageServer" = true;
-        "nix.serverPath" = "nil";
+        "nix.serverPath" = "nixd";
       };
       keybindings = keybindings;
     };

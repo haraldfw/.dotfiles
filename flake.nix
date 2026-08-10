@@ -26,6 +26,11 @@
       inputs.home-manager.follows = "home-manager";
     };
 
+    obsidian-extensions = {
+      url = "github:karaolidis/nix-obsidian-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     mac-app-util = {
       url = "github:hraban/mac-app-util";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -60,6 +65,7 @@
           ];
           overlays = [
             nix-vscode-extensions.overlays.default
+            inputs.obsidian-extensions.overlays.default
           ];
         };
       pkgsFor = system: mkPkgs system;

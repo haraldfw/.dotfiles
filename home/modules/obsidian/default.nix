@@ -34,6 +34,11 @@
         "note-composer"
       ];
 
+      communityPlugins = with pkgs.obsidianPlugins; [
+        dataview
+        checklist
+      ];
+
       hotkeys = {
         "command-palette:open" = [
           {
