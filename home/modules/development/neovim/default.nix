@@ -28,6 +28,8 @@
 
       golangci-lint
       golangci-lint-langserver
+
+      tree-sitter
     ];
 
     plugins = with pkgs.vimPlugins; [
