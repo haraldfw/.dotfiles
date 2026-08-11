@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   programs.neovim = {
     enable = true;
@@ -9,28 +9,33 @@
     withRuby = false;
     withPython3 = false;
 
-    extraPackages = with pkgs; [
-      nixd
-      statix
-      deadnix
+    extraPackages =
+      with pkgs;
+      [
+        nixd
+        statix
+        deadnix
 
-      lua-language-server
-      pyright
-      typescript-language-server
-      rust-analyzer
-      gopls
+        lua-language-server
+        pyright
+        typescript-language-server
+        rust-analyzer
+        gopls
 
-      stylua
-      nixfmt
-      black
-      ripgrep
-      fd
+        stylua
+        nixfmt
+        black
+        ripgrep
+        fd
 
-      golangci-lint
-      golangci-lint-langserver
+        golangci-lint
+        golangci-lint-langserver
 
-      tree-sitter
-    ];
+        tree-sitter
+      ]
+      ++ lib.optionals pkgs.stdenv.isLinux [
+        wl-clipboard # for Wayland/Hyprland — swap for `xclip` if you're on X11 instead
+      ];
 
     plugins = with pkgs.vimPlugins; [
       plenary-nvim
@@ -116,6 +121,8 @@
       vim.opt.updatetime = 250
       vim.opt.splitright = true
       vim.opt.splitbelow = true
+
+      vim.opt.clipboard = "unnamedplus"
 
       vim.opt.list = true
       vim.opt.listchars = {
