@@ -134,6 +134,12 @@
         space = "·",
       }
 
+      vim.api.nvim_create_autocmd("TextYankPost", {
+        callback = function()
+          vim.highlight.on_yank({ higroup = "IncSearch", timeout = 100 })
+        end,
+      })
+
       require("monokai-pro").setup {
         filter = "classic", -- other options: "octagon", "pro", "machine", "ristretto", "spectrum"
       }
