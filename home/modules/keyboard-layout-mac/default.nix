@@ -1,5 +1,8 @@
 { config, lib, ... }:
 {
+  imports = [
+    ./keybindings-dict.nix
+  ];
   home.activation.installKeyboardLayout = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     $DRY_RUN_CMD mkdir -p "${config.home.homeDirectory}/Library/Keyboard Layouts"
     $DRY_RUN_CMD chmod -R u+w "${config.home.homeDirectory}/Library/Keyboard Layouts/us-intl-no-dead-keys.bundle" 2>/dev/null || true

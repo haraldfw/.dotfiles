@@ -17,6 +17,7 @@
   home.sessionPath = [
     "/opt/homebrew/bin"
     "/Users/${username}/go/bin"
+    "/Users/${username}/bin"
   ];
 
   home.stateVersion = "25.11";
