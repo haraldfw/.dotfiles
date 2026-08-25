@@ -75,6 +75,8 @@
         "alt-shift-r" = "reload-config";
 
         "alt-enter" = "exec-and-forget open -na Alacritty";
+
+        "alt-shift-s" = "screencapture -iP";
       };
 
       mode.service.binding = {
