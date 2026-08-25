@@ -76,7 +76,7 @@
 
         "alt-enter" = "exec-and-forget open -na Alacritty";
 
-        "alt-shift-s" = "screencapture -iP";
+        "alt-shift-s" = "exec-and-forget screencapture -iP";
       };
 
       mode.service.binding = {
