@@ -14,7 +14,8 @@
       rustc
       gcc
     ]
-    ++ lib.optionals pkgs.stdenv.isLinux [
+    # also add the following if the hostPlatform is linux
+    ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
       busybox
       lshw
       iputils

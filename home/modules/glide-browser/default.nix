@@ -55,4 +55,8 @@
       };
     };
   };
+  xdg.configFile."glide/glide.ts".text = ''
+    glide.keymaps.set("normal", "<leader>t", "tab_new", { description: "Open a new tab" });
+    glide.keymaps.set("normal", "<leader>T", "tab_reopen", { description: "Reopen last closed tab" });
+  '';
 }

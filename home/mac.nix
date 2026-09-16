@@ -18,6 +18,7 @@
     "/opt/homebrew/bin"
     "/Users/${username}/go/bin"
     "/Users/${username}/bin"
+    "/opt/homebrew/opt/libpq/bin"
   ];
 
   home.stateVersion = "25.11";

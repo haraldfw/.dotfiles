@@ -33,7 +33,8 @@
 
         tree-sitter
       ]
-      ++ lib.optionals pkgs.stdenv.isLinux [
+      # also add the following if the hostPlatform is linux
+      ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
         wl-clipboard # for Wayland/Hyprland — swap for `xclip` if you're on X11 instead
       ];
 
@@ -275,7 +276,7 @@
           python = { "black" },
         },
         format_on_save = {
-          timeout_ms = 500,
+          timeout_ms = 2000,
           lsp_fallback = true,
         },
       }

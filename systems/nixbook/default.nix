@@ -36,6 +36,9 @@
       }
     ];
     brews = [
+      "cfssl"
+      "libpq"
+      "node"
       "showkey"
       "sqlite"
       "vault"
@@ -46,6 +49,7 @@
       "displaylink"
       "font-fira-code-nerd-font"
       "obsidian"
+      "utm"
       "vscodium"
     ];
   };

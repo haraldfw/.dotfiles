@@ -2,7 +2,8 @@
 {
   programs.obsidian = {
     enable = true;
-    package = if pkgs.stdenv.isDarwin then null else pkgs.obsidian;
+    # use package null when on macos
+    package = if pkgs.stdenv.hostPlatform.isDarwin then null else pkgs.obsidian;
 
     defaultSettings = {
       app = {

@@ -13,7 +13,8 @@
       };
 
       font = {
-        size = if pkgs.stdenv.isDarwin then 14 else 12;
+        # different font size on mac and linux
+        size = if pkgs.stdenv.hostPlatform.isDarwin then 14 else 12;
         normal.family = "FiraCode Nerd Font";
       };
 
