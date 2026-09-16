@@ -20,7 +20,7 @@ monitor_tag = "monitor1"
 
 
 [profiles.tux-home]
-config_file = "/tmp/hyprdynamicmonitors/hyprconfigs/tux-home.go.tmpl"
+config_file = "$HOME/.config/hyprdynamicmonitors/hyprconfigs/tux-home.go.tmpl"
 config_file_type = "template"
 [profiles.tux-home.conditions]
 
