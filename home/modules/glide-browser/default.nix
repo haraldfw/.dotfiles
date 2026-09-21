@@ -5,6 +5,7 @@
     configPath = "${config.xdg.configHome}/glide";
 
     policies = {
+      DisableAppUpdate = true;
       DisableTelemetry = true;
       DisableFirefoxStudies = true;
       Preferences = {

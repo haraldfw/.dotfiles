@@ -99,16 +99,16 @@
       };
 
       workspace-to-monitor-force-assignment = {
-        "1" = "main";
-        "2" = "main";
-        "3" = "secondary";
-        "4" = "secondary";
-        "5" = "secondary";
-        "6" = "secondary";
-        "7" = "secondary";
-        "8" = "secondary";
-        "9" = "secondary";
-        "10" = "secondary";
+        "1" = 1;
+        "2" = 1;
+        "3" = 2;
+        "4" = 2;
+        "5" = 2;
+        "6" = 3;
+        "7" = 3;
+        "8" = 3;
+        "9" = 3;
+        "10" = 3;
       };
     };
   };

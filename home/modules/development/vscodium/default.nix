@@ -7,6 +7,8 @@ let
   extensions = with pkgs.nix-vscode-extensions.vscode-marketplace; [
     arrterian.nix-env-selector
     vscodevim.vim
+    waderyan.gitblame
+    DotJoshJohnson.xml
   ];
   globalSnippets = {
     "#bash" = {
