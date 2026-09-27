@@ -9,6 +9,7 @@
     ./modules/development/additional-packages.nix
     ./modules/development/neovim
     ./modules/development/vscodium
+    ./modules/glide-browser
     ./modules/obsidian
     ./modules/zsh
     ./modules/alacritty.nix

@@ -5,9 +5,9 @@
     upower.enable = true;
   };
 
-  systemd.sleep.settings.Sleep = {
-    HibernateDelaySec = "1h";
-  };
+  # systemd.sleep.settings.Sleep = {
+  #   HibernateDelaySec = "1h";
+  # };
 
   services.logind.settings.login = {
     HandleLidSwitch = "suspend-then-hibernate";

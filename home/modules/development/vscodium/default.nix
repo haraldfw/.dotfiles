@@ -8,7 +8,6 @@ let
     arrterian.nix-env-selector
     vscodevim.vim
     waderyan.gitblame
-    DotJoshJohnson.xml
   ];
   globalSnippets = {
     "#bash" = {
