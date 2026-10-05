@@ -39,6 +39,7 @@
       "cfssl"
       "libpq"
       "node"
+      "openssh"
       "showkey"
       "sqlite"
       "vault"
