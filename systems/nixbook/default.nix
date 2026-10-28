@@ -38,6 +38,7 @@
     brews = [
       "cfssl"
       "libpq"
+      "ncdu"
       "node"
       "openssh"
       "showkey"
