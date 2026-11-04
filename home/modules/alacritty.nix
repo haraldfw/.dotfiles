@@ -23,7 +23,7 @@
         padding.y = 10;
         opacity = 0.9;
         blur = true;
-        option_as_alt = "Both";
+        option_as_alt = "OnlyLeft";
       };
 
       keyboard.bindings = [
