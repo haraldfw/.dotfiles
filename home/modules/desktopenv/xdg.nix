@@ -2,14 +2,14 @@
 with lib;
 let
   defaultApps = {
-    browser = [ "librewolf.desktop" ];
+    browser = [ "glide.desktop" ];
     text = [ "vscodium.desktop" ];
     image = [ "eog.desktop" ];
     audio = [ "vlc.desktop" ];
     video = [ "vlc.desktop" ];
     directory = [ "dolphin.desktop" ];
     office = [ "libreoffice.desktop" ];
-    pdf = [ "librewolf.desktop" ];
+    pdf = [ "glide.desktop" ];
     terminal = [ "alacritty.desktop" ];
     archive = [ "dolphin.desktop" ];
     discord = [ "webcord.desktop" ];
