@@ -349,6 +349,16 @@
       end
       vim.keymap.set("n", "<leader>t", toggle_terminal, { desc = "Toggle terminal" })
 
+      -- leave terminal mode and start a window command (<C-w>h, <C-w>k, ...)
+      vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], { desc = "Window command from terminal" })
+      -- <C-w> is taken above, so Ctrl+Backspace sends ^W to the shell (backward-kill-word).
+      -- alacritty sends ^H for Ctrl+Backspace; <C-BS> covers the kitty keyboard protocol case
+      local function term_delete_word()
+        vim.api.nvim_chan_send(vim.b.terminal_job_id, "\x17")
+      end
+      vim.keymap.set("t", "<C-BS>", term_delete_word, { desc = "Delete previous word in terminal" })
+      vim.keymap.set("t", "<C-h>", term_delete_word, { desc = "Delete previous word in terminal" })
+
       -- train.nvim
       vim.keymap.set("n", "<leader>Tu", ":TrainUpDown<CR>", { desc = "Train up/down motions" })
       vim.keymap.set("n", "<leader>Tw", ":TrainWord<CR>", { desc = "Train word motions" })

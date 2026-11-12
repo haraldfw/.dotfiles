@@ -37,6 +37,13 @@
           mods = "Control|Shift";
           action = "Paste";
         }
+        {
+          # send ^H so Ctrl+Backspace is distinguishable from Backspace (^?);
+          # zsh and the nvim terminal map ^H to delete previous word
+          key = "Back";
+          mods = "Control";
+          chars = builtins.fromJSON ''"\u0008"'';
+        }
       ];
     };
   };

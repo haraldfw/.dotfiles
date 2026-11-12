@@ -16,6 +16,7 @@
       bindkey "^[[1;5C" forward-word
       bindkey "^[[1;5D" backward-word
       bindkey "^R" history-incremental-search-backward
+      bindkey "^H" backward-kill-word # Ctrl+Backspace (alacritty sends ^H)
 
       # mac stuff
       bindkey "^[[H" beginning-of-line
