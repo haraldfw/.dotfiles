@@ -155,7 +155,7 @@
       require("which-key").add {
         { "<leader>f", group = "Find (Telescope)" },
         { "<leader>d", group = "Debug (DAP)" },
-        { "<leader>t", group = "Train motions" },
+        { "<leader>T", group = "Train motions" },
         { "<leader>g", group = "Git" },
         { "<leader>o", group = "Obsidian" },
       }
@@ -329,10 +329,30 @@
 
       require("mini.starter").setup {}
 
+      -- toggle a bottom terminal split, reusing the same terminal buffer
+      local term = { buf = nil, win = nil }
+      local function toggle_terminal()
+        if term.win and vim.api.nvim_win_is_valid(term.win) then
+          vim.api.nvim_win_hide(term.win)
+          term.win = nil
+          return
+        end
+        vim.cmd("botright 15split")
+        term.win = vim.api.nvim_get_current_win()
+        if term.buf and vim.api.nvim_buf_is_valid(term.buf) then
+          vim.api.nvim_win_set_buf(term.win, term.buf)
+        else
+          vim.cmd.terminal()
+          term.buf = vim.api.nvim_get_current_buf()
+        end
+        vim.cmd.startinsert()
+      end
+      vim.keymap.set("n", "<leader>t", toggle_terminal, { desc = "Toggle terminal" })
+
       -- train.nvim
-      vim.keymap.set("n", "<leader>tu", ":TrainUpDown<CR>", { desc = "Train up/down motions" })
-      vim.keymap.set("n", "<leader>tw", ":TrainWord<CR>", { desc = "Train word motions" })
-      vim.keymap.set("n", "<leader>to", ":TrainTextObj<CR>", { desc = "Train text-object motions" })
+      vim.keymap.set("n", "<leader>Tu", ":TrainUpDown<CR>", { desc = "Train up/down motions" })
+      vim.keymap.set("n", "<leader>Tw", ":TrainWord<CR>", { desc = "Train word motions" })
+      vim.keymap.set("n", "<leader>To", ":TrainTextObj<CR>", { desc = "Train text-object motions" })
 
       -- obsidian.nvim
       require("obsidian").setup {

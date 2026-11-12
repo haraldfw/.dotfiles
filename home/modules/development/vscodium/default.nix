@@ -64,6 +64,13 @@ let
         "commands" = [ ":nohl" ];
       }
       {
+        "before" = [
+          "<leader>"
+          "t"
+        ];
+        "commands" = [ "workbench.action.terminal.toggleTerminal" ];
+      }
+      {
         "before" = [ "K" ];
         "commands" = [ "lineBreakInsert" ];
         "silent" = true;
