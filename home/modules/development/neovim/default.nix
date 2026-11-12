@@ -359,6 +359,15 @@
       vim.keymap.set("t", "<C-BS>", term_delete_word, { desc = "Delete previous word in terminal" })
       vim.keymap.set("t", "<C-h>", term_delete_word, { desc = "Delete previous word in terminal" })
 
+      -- Ctrl+Backspace / Ctrl+Delete delete word backward / forward in normal and insert mode
+      -- (alacritty sends ^H for Ctrl+Backspace, hence the <C-h> mappings)
+      for _, lhs in ipairs({ "<C-BS>", "<C-h>" }) do
+        vim.keymap.set("i", lhs, "<C-w>", { desc = "Delete previous word" })
+        vim.keymap.set("n", lhs, "db", { desc = "Delete previous word" })
+      end
+      vim.keymap.set("i", "<C-Del>", "<C-o>dw", { desc = "Delete next word" })
+      vim.keymap.set("n", "<C-Del>", "dw", { desc = "Delete next word" })
+
       -- train.nvim
       vim.keymap.set("n", "<leader>Tu", ":TrainUpDown<CR>", { desc = "Train up/down motions" })
       vim.keymap.set("n", "<leader>Tw", ":TrainWord<CR>", { desc = "Train word motions" })
