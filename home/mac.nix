@@ -3,6 +3,7 @@
   imports = [
     # ./modules/additional-packages.nix
     ./modules/alacritty.nix
+    ./modules/tmux.nix
     ./modules/development/additional-packages.nix
     ./modules/development/neovim
     ./modules/glide-browser
