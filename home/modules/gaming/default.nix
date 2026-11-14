@@ -1,6 +1,9 @@
 { pkgs, ... }:
 {
-  imports = [ ./lutris.nix ];
+  imports = [
+    ./lutris.nix
+    ./wowup.nix
+  ];
 
   home.packages = with pkgs; [
     webcord
