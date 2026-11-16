@@ -23,8 +23,10 @@
       bindkey "^H" backward-kill-word # Ctrl+Backspace (alacritty sends ^H)
 
       # mac stuff
-      bindkey "^[[H" beginning-of-line
-      bindkey "^[[F" end-of-line
+      # Home/End: alacritty sends ^[[H/^[[F, tmux sends ^[[1~/^[[4~,
+      # some terminals use ^[OH/^[OF or ^[[7~/^[[8~
+      for seq in "^[[H" "^[OH" "^[[1~" "^[[7~"; do bindkey "$seq" beginning-of-line; done
+      for seq in "^[[F" "^[OF" "^[[4~" "^[[8~"; do bindkey "$seq" end-of-line; done
       bindkey "^[[3~" delete-char
       bindkey "^[[3;5~" delete-word
 

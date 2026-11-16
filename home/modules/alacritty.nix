@@ -44,6 +44,13 @@
           mods = "Control";
           chars = builtins.fromJSON ''"\u0008"'';
         }
+        {
+          # Shift+Enter sends ESC+CR (Meta+Enter), so Claude Code gets a newline
+          # instead of submit. Unlike the kitty keyboard protocol, this survives tmux.
+          key = "Return";
+          mods = "Shift";
+          chars = builtins.fromJSON ''"\u001b\r"'';
+        }
       ];
     };
   };
