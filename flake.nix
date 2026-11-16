@@ -6,7 +6,6 @@
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
 
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-    hyprdynamicmonitors.url = "github:fiffeek/hyprdynamicmonitors";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -48,7 +47,6 @@
       nixpkgs,
       home-manager,
       nix-vscode-extensions,
-      hyprdynamicmonitors,
       nix-darwin,
       glide,
       ...
@@ -143,7 +141,6 @@
           pkgs = pkgsFor hosts.tux.system;
           modules = [
             inputs.glide.homeModules.default
-            hyprdynamicmonitors.homeManagerModules.default
             ./home/linux.nix
           ];
           extraSpecialArgs = {
@@ -156,7 +153,6 @@
           pkgs = pkgsFor hosts.tuxollini.system;
           modules = [
             inputs.glide.homeModules.default
-            hyprdynamicmonitors.homeManagerModules.default
             ./home/linux.nix
           ];
           extraSpecialArgs = {
