@@ -1,5 +1,11 @@
-{ ... }:
+{ config, lib, ... }:
 {
+  # Run AeroSpace from the copy in Home Manager Apps instead of /nix/store. That
+  # copy is re-signed with a stable certificate (../codesign-apps), so the
+  # Accessibility permission survives rebuilds. The path no longer changes on
+  # updates, so restart after one: launchctl kickstart -k gui/$UID/org.nix-community.home.aerospace
+  launchd.agents.aerospace.config.Program = lib.mkForce "${config.home.homeDirectory}/${config.targets.darwin.copyApps.directory}/AeroSpace.app/Contents/MacOS/AeroSpace";
+
   programs.aerospace = {
     enable = true;
     launchd.enable = true;

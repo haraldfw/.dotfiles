@@ -14,6 +14,7 @@
     ./modules/aerospace
     ./modules/kubernetes-mac
     ./modules/karabiner
+    ./modules/codesign-apps
   ];
 
   home.sessionPath = [
