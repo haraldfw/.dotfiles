@@ -22,8 +22,7 @@
 
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
-    NIXOS_OZONE_WL = "1";
-  };
+    NIXOS_OZONE_WL = "1";  };
 
   # systemd.user.targets.hyprland-session.Unit.Wants = [
   #	"xdg-desktop-autostart.target"

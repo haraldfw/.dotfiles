@@ -131,6 +131,13 @@ in
           layout = "dwindle";
         };
 
+        # Temporary: stream logs to stdout so `start-hyprland | tee` captures the final
+        # seconds before a monitor power-cycle crash (the on-disk log gets cut off).
+        debug = {
+          disable_logs = false; # default is true, which stops logging after startup
+          enable_stdout_logs = true;
+        };
+
         misc = {
           disable_autoreload = true;
           disable_hyprland_logo = true;

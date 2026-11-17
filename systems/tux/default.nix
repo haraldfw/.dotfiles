@@ -38,6 +38,15 @@
 
   powerManagement.cpuFreqGovernor = "performance";
 
+  # Only let Hyprland drive the NVIDIA card (the monitor is on it). Keeps the Intel iGPU
+  # out of aquamarine's seat/hotplug restore path (KVM monitor power-cycle crashed Hyprland).
+  # AQ_DRM_DEVICES is colon-separated, so the by-path name (contains ':') can't be used;
+  # make a colon-free stable symlink for the NVIDIA card instead.
+  services.udev.extraRules = ''
+    SUBSYSTEM=="drm", KERNEL=="card[0-9]*", SUBSYSTEMS=="pci", KERNELS=="0000:01:00.0", SYMLINK+="dri/nvidia-card"
+  '';
+  environment.sessionVariables.AQ_DRM_DEVICES = "/dev/dri/nvidia-card";
+
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = false;
