@@ -19,8 +19,11 @@
       };
 
       window = {
-        padding.x = 10;
-        padding.y = 10;
+        padding.x = 0;
+        padding.y = 0;
+        # split leftover space (window height not a multiple of the line height)
+        # between top and bottom, instead of piling it up under the last line
+        dynamic_padding = true;
         opacity = 0.9;
         blur = true;
         option_as_alt = "OnlyLeft";
