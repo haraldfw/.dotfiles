@@ -50,6 +50,7 @@
       "drawio"
       "displaylink"
       "font-fira-code-nerd-font"
+      "karabiner-elements"
       "obsidian"
       "utm"
       "vscodium"

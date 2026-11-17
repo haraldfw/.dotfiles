@@ -13,6 +13,7 @@
     ./modules/zsh
     ./modules/aerospace
     ./modules/kubernetes-mac
+    ./modules/karabiner
   ];
 
   home.sessionPath = [

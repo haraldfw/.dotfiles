@@ -24,18 +24,16 @@
 
       key-mapping.preset = "qwerty";
 
+      # alt-w (close), alt-l (focus right) and alt-shift-l (move right) are bound
+      # in ../karabiner on left Option only, so right Option+w/l can type å/ø
       mode.main.binding = {
-        "alt-w" = "close";
-
         "alt-h" = "focus left";
         "alt-j" = "focus down";
         "alt-k" = "focus up";
-        "alt-l" = "focus right";
 
         "alt-shift-h" = "move left";
         "alt-shift-j" = "move down";
         "alt-shift-k" = "move up";
-        "alt-shift-l" = "move right";
 
         "alt-minus" = "resize smart -50";
         "alt-equal" = "resize smart +50";
