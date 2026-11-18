@@ -24,6 +24,11 @@ let
     vendor_id = 1241;
     product_id = 361;
   };
+  # PC-layout keyboard used at home ("USB Keyboard", 0x0c45:0x7692)
+  homeKeyboard = {
+    vendor_id = 3141;
+    product_id = 30354;
+  };
 
   remapOn = device: from: to: {
     type = "basic";
@@ -41,6 +46,11 @@ let
   };
 in
 {
+  # Karabiner replaces this symlink with a real file whenever it saves (e.g. when
+  # it sees a new device), which would make home-manager refuse to switch.
+  # force = true overwrites it without a backup.
+  xdg.configFile."karabiner/karabiner.json".force = true;
+
   # read-only nix symlink: edits made in the Karabiner GUI won't persist
   xdg.configFile."karabiner/karabiner.json".text = builtins.toJSON {
     profiles = [
@@ -67,6 +77,14 @@ in
               (remapOn usbKeyboard "left_option" "left_command")
               (remapOn usbKeyboard "left_command" "left_option")
               (remapOn usbKeyboard "caps_lock" "escape")
+            ];
+          }
+          {
+            # same layout as the other PC keyboard, but no Caps Lock remap
+            description = "Home keyboard: swap left Option/Command";
+            manipulators = [
+              (remapOn homeKeyboard "left_option" "left_command")
+              (remapOn homeKeyboard "left_command" "left_option")
             ];
           }
           {
