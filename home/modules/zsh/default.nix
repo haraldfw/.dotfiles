@@ -17,6 +17,10 @@
     };
 
     initContent = ''
+      # vi mode on purpose (zsh would also pick it on its own because EDITOR=nvim).
+      # Set explicitly so it doesn't depend on EDITOR; must come before the bindkeys below.
+      bindkey -v
+
       bindkey "^[[1;5C" forward-word
       bindkey "^[[1;5D" backward-word
       bindkey "^R" history-incremental-search-backward
