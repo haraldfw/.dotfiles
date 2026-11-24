@@ -13,6 +13,7 @@
     ./modules/obsidian
     ./modules/zsh
     ./modules/alacritty.nix
+    ./modules/claude-code.nix
     ./modules/tmux.nix
     ./modules/librewolf.nix
   ];

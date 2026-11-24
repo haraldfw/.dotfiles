@@ -43,6 +43,7 @@
       "openssh"
       "showkey"
       "sqlite"
+      "trivy"
       "vault"
     ];
     casks = [

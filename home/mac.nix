@@ -15,6 +15,7 @@
     ./modules/kubernetes-mac
     ./modules/karabiner
     ./modules/codesign-apps
+    ./modules/claude-code.nix
   ];
 
   home.sessionPath = [
