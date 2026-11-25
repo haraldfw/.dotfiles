@@ -77,6 +77,10 @@
           system = "x86_64-linux";
           username = "haraldfw";
         };
+        work = {
+          system = "x86_64-linux";
+          username = "haraldfw";
+        };
         nixbook = {
           system = "aarch64-darwin";
           username = "harald.wilhelmsen";
@@ -102,6 +106,15 @@
           specialArgs = {
             host = "tuxollini";
             username = hosts.tuxollini.username;
+            inherit self inputs;
+          };
+        };
+        work = lib.nixosSystem {
+          system = hosts.work.system;
+          modules = [ ./systems/work ];
+          specialArgs = {
+            host = "work";
+            username = hosts.work.username;
             inherit self inputs;
           };
         };
@@ -159,6 +172,19 @@
             inherit inputs;
             system = hosts.tuxollini.system;
             username = hosts.tuxollini.username;
+          };
+        };
+
+        "${hosts.work.username}@work" = home-manager.lib.homeManagerConfiguration {
+          pkgs = pkgsFor hosts.work.system;
+          modules = [
+            inputs.glide.homeModules.default
+            ./home/hosts/work.nix
+          ];
+          extraSpecialArgs = {
+            inherit inputs;
+            system = hosts.work.system;
+            username = hosts.work.username;
           };
         };
 

@@ -16,6 +16,21 @@ Setting up a new system:
 Future syncs are done with `./scripts/sync.bash`. This syncs both system-config and home-files. If you only wish to sync home-files use `./scripts/sync-user.bash`, this is faster but only syncs homefiles.
 
 
+# Host-specific installs
+
+Each machine has its own entry in the flake, so things can be installed on one machine only:
+
+- **System-wide packages and services:** `systems/<host>/default.nix` (e.g. `environment.systemPackages`).
+- **User packages and programs (home-manager):** `home/hosts/<host>.nix`. Only `work` has one so far, it imports
+  the shared `home/linux-common.nix` and is where work-only packages go. `tux` and `tuxollini` use `home/linux.nix`,
+  which is `linux-common.nix` plus personal-only modules (Obsidian).
+- **Something shared by all linux machines:** `home/linux-common.nix` or `systems/modules/`.
+- **Just trying something out:** `nix shell nixpkgs#<package>` gives a temporary shell with it, nothing is
+  written to the repo.
+
+New files must be `git add`ed before the flake can see them. The sync scripts pick the entry matching the
+machine's hostname, so no script changes are needed for a new host.
+
 # Cleaning up old generations
 
 After a while nix builds up a lot of trash, and old generations on nixos can take up a lot of space. When you know you have a stable config you should clean up old ones.

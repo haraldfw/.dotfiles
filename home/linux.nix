@@ -1,25 +1,9 @@
-{ pkgs, username, ... }:
+{ ... }:
 {
+  # tux and tuxollini: the shared linux setup plus personal-only modules.
+  # Host-specific installs for the work laptop live in hosts/work.nix instead.
   imports = [
-    ./modules/desktopenv
-    ./modules/gaming
-    ./modules/gamedev
-
-    ./modules/additional-packages.nix
-    ./modules/development/additional-packages.nix
-    ./modules/development/neovim
-    ./modules/development/vscodium
-    ./modules/glide-browser
+    ./linux-common.nix
     ./modules/obsidian
-    ./modules/zsh
-    ./modules/alacritty.nix
-    ./modules/claude-code.nix
-    ./modules/tmux.nix
-    ./modules/librewolf.nix
   ];
-
-  home.stateVersion = "25.11";
-  home.username = "${username}";
-  home.homeDirectory = "/home/${username}";
-  programs.home-manager.enable = true;
 }
