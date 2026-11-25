@@ -6,7 +6,7 @@
     ./modules/tmux.nix
     ./modules/development/additional-packages.nix
     ./modules/development/neovim
-    ./modules/glide-browser
+    ./modules/glide-browser/config.nix
     ./modules/keyboard-layout-mac
     ./modules/obsidian
     # ./modules/librewolf

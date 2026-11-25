@@ -51,6 +51,7 @@
       "drawio"
       "displaylink"
       "font-fira-code-nerd-font"
+      "glide-browser"
       "karabiner-elements"
       "obsidian"
       "utm"

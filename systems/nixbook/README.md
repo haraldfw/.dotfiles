@@ -55,8 +55,6 @@ Grant these in System Settings → Privacy & Security:
 | App Management     | Alacritty                                       | No prompts when the sync script updates apps (home-manager apps, Homebrew casks)       |
 | Developer Tools    | Alacritty (optional)                            | Skips Gatekeeper checks for binaries started from the terminal, so they start faster  |
 
-Glide may also ask for Camera, Microphone or Screen Recording when a site needs them.
-
 Nix builds apps with throwaway signatures that aren't tied to a certificate, so macOS would
 track them by a fingerprint of the binary and drop their permissions on every rebuild. To prevent
 that, every app in `~/Applications/Home Manager Apps` is re-signed with the `nixbook-codesign`
@@ -73,6 +71,11 @@ certificate instead. This means:
   launchd won't restart it on its own.
 - Moving to a new certificate, or setting this up for the first time, means removing the apps' old
   entries in each Privacy & Security list and adding them again once.
+
+Glide is not installed through Nix on this Mac. It comes from a Homebrew cask (`glide-browser`), which is
+vendor-signed, so its permissions persist and it updates itself. Only its keybindings are managed here
+(`home/modules/glide-browser/config.nix`). Extensions and preferences are not declarative on macos, set
+them up in the browser itself. Linux still uses the full Nix module in `home/modules/glide-browser`.
 
 CLI tools started from Alacritty (nvim, git, ...) use Alacritty's permissions, so they need no
 signing.
