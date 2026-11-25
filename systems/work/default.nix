@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   ...
 }:
 {
@@ -51,9 +52,9 @@
   #  - services.power-profiles-daemon.enable
   #  - swapDevices (tuxollini has a 32 GiB swap file)
 
-  # Packages that should only be installed on the work laptop (system-wide). For user-level
-  # packages and programs, use home/hosts/work.nix instead.
-  environment.systemPackages = [ ];
+  environment.systemPackages = with pkgs; [
+    qemu_kvm
+  ];
 
   # do not change after the first install; set it to the NixOS version you install with
   system.stateVersion = "26.05";
