@@ -14,6 +14,11 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
 
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -91,7 +96,10 @@
       nixosConfigurations = {
         tux = lib.nixosSystem {
           system = hosts.tux.system;
-          modules = [ ./systems/tux ];
+          modules = [
+            inputs.niri.nixosModules.niri
+            ./systems/tux
+          ];
           specialArgs = {
             host = "tux";
             username = hosts.tux.username;
@@ -101,6 +109,7 @@
         tuxollini = lib.nixosSystem {
           system = hosts.tuxollini.system;
           modules = [
+            inputs.niri.nixosModules.niri
             ./systems/tuxollini
           ];
           specialArgs = {
@@ -111,7 +120,10 @@
         };
         work = lib.nixosSystem {
           system = hosts.work.system;
-          modules = [ ./systems/work ];
+          modules = [
+            inputs.niri.nixosModules.niri
+            ./systems/work
+          ];
           specialArgs = {
             host = "work";
             username = hosts.work.username;
@@ -154,6 +166,7 @@
           pkgs = pkgsFor hosts.tux.system;
           modules = [
             inputs.glide.homeModules.default
+            inputs.niri.homeModules.niri
             ./home/linux.nix
           ];
           extraSpecialArgs = {
@@ -166,6 +179,7 @@
           pkgs = pkgsFor hosts.tuxollini.system;
           modules = [
             inputs.glide.homeModules.default
+            inputs.niri.homeModules.niri
             ./home/linux.nix
           ];
           extraSpecialArgs = {
@@ -179,6 +193,7 @@
           pkgs = pkgsFor hosts.work.system;
           modules = [
             inputs.glide.homeModules.default
+            inputs.niri.homeModules.niri
             ./home/hosts/work.nix
           ];
           extraSpecialArgs = {

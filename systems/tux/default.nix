@@ -10,6 +10,7 @@
     ../modules/fonts.nix
     ../modules/hyprland.nix
     ../modules/linux-specific.nix
+    ../modules/niri.nix
     ../modules/nix-settings.nix
     ../modules/pipewire.nix
     ../modules/steam.nix
