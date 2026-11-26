@@ -219,7 +219,7 @@ in
 
           (bind "SUPER + SHIFT + S" screenshot { })
           (bind "PRINT" screenshot { })
-          (bind "SUPER + L" (exec "pactl set-sink-mute @DEFAULT_SINK@ 1 && hyprlock") { })
+          (bind "SUPER + L" (exec "wpctl set-mute @DEFAULT_AUDIO_SINK@ 1; hyprlock") { })
 
           # media keys (work on lockscreen)
           (bind "XF86AudioNext" (exec "playerctl next") { locked = true; })
