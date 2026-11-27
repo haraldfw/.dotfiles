@@ -126,6 +126,8 @@ in
       "Mod+J".action.focus-window-down = [ ];
       "Mod+K".action.focus-window-up = [ ];
       "Mod+L".action.focus-column-right = [ ];
+      "Mod+Shift+H".action.move-column-left = [ ];
+      "Mod+Shift+L".action.move-column-right = [ ];
 
       "Mod+Shift+Left".action.move-column-left = [ ];
       "Mod+Shift+Right".action.move-column-right = [ ];
