@@ -193,7 +193,7 @@ in
     };
 
     spawn-at-startup = [
-      { argv = [ "${pkgs.waybar}/bin/waybar" "-c" "${config.xdg.configHome}/waybar/niri.jsonc" ]; }
+      { argv = [ "${pkgs.waybar}/bin/waybar" "-c" "${config.xdg.configHome}/waybar/niri.jsonc" "-s" "${config.xdg.configHome}/waybar/niri.css" ]; }
       { argv = [ "${pkgs.dunst}/bin/dunst" ]; }
       { argv = [ "${workspaceLayout}/bin/niri-workspace-layout" ]; }
       { argv = [ "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1" ]; }
@@ -220,6 +220,7 @@ in
       "Mod+Up".action.focus-window-up = [ ];
       "Mod+Down".action.focus-window-down = [ ];
       "Mod+Tab".action.focus-column-right = [ ];
+      "Mod+Shift+Tab".action.focus-column-left = [ ];
 
       # vim-style focus, alongside the arrow keys
       "Mod+H".action.focus-column-left = [ ];
