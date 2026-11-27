@@ -305,8 +305,8 @@ in
       "Mod+Right".action.focus-column-right = [ ];
       "Mod+Up".action.focus-window-up = [ ];
       "Mod+Down".action.focus-window-down = [ ];
-      "Mod+Tab".action.focus-column-right = [ ];
-      "Mod+Shift+Tab".action.focus-column-left = [ ];
+      "Mod+Tab".action.focus-column-right-or-first = [ ];
+      "Mod+Shift+Tab".action.focus-column-left-or-last = [ ];
 
       # vim-style focus, alongside the arrow keys
       "Mod+H".action.focus-column-left = [ ];
