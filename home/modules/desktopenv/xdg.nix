@@ -100,4 +100,7 @@ in
     extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
     config.common.default = "*";
   };
+
+  # System-wide dark preference, read by Electron apps (e.g. Teams) and browsers via the portal
+  dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
 }

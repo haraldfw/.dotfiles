@@ -15,6 +15,7 @@
     ./modules/claude-code.nix
     ./modules/tmux.nix
     ./modules/librewolf.nix
+    ./modules/obsidian
   ];
 
   home.stateVersion = "25.11";

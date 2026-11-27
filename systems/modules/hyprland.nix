@@ -20,6 +20,9 @@
     kdePackages.dolphin
   ];
 
+  # Needed for home-manager's dconf settings (dark mode preference) to take effect
+  programs.dconf.enable = true;
+
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";  };
