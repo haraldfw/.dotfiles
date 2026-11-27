@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  spawn = args: { action.spawn = args; };
+  spawn = args: { spawn = args; };
 
   workspaces = [ 1 2 3 4 5 6 7 8 9 10 ];
   key = n: toString (if n == 10 then 0 else n);
@@ -18,11 +18,20 @@ let
     ]) workspaces
   );
 
+  # Don't stack lockers if idle/sleep/keybind fire together.
+  lock = "pidof hyprlock || ${pkgs.hyprlock}/bin/hyprlock";
+
   volume = delta: [ "wpctl" "set-volume" "-l" "1.0" "@DEFAULT_AUDIO_SINK@" delta ];
 in
 {
+  programs.niri.package = pkgs.niri;
+
+  programs.hyprlock.enable = true;
+
   programs.niri.settings = {
     prefer-no-csd = true;
+
+    screenshot-path = "~/pictures/screenshots/%Y-%m-%d %H-%M-%S.png";
 
     input = {
       keyboard = {
@@ -89,17 +98,19 @@ in
       { argv = [ "${pkgs.dunst}/bin/dunst" ]; }
       { argv = [ "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1" ]; }
       { argv = [ "${pkgs.swayidle}/bin/swayidle" "-w"
-          "timeout" "300" "${pkgs.hyprlock}/bin/hyprlock"
+          "timeout" "150" "brightnessctl -s set 10" "resume" "brightnessctl -r"
+          "timeout" "300" lock
           "timeout" "330" "niri msg action power-off-monitors"
           "resume" "niri msg action power-on-monitors"
-          "before-sleep" "${pkgs.hyprlock}/bin/hyprlock" ]; }
+          "before-sleep" lock ]; }
     ];
 
     binds = {
-      "Mod+Return".action = spawn [ "alacritty" ];
-      "Mod+W".action.close-window = [ ];
-      "Mod+E".action = spawn [ "dolphin" ];
-      "Mod+Space".action = spawn [ "rofi" "-theme" "gruvbox-dark.rasi" "-show" "combi" "-modes" "combi" ];
+      "Mod+F1" = { action.show-hotkey-overlay = [ ]; hotkey-overlay.title = "Show important hotkeys"; };
+      "Mod+Return" = { action = spawn [ "alacritty" ]; hotkey-overlay.title = "Open terminal"; };
+      "Mod+W" = { action.close-window = [ ]; hotkey-overlay.title = "Close window"; };
+      "Mod+E" = { action = spawn [ "dolphin" ]; hotkey-overlay.title = "File manager"; };
+      "Mod+Space" = { action = spawn [ "rofi" "-theme" "gruvbox-dark.rasi" "-show" "combi" "-modes" "combi" ]; hotkey-overlay.title = "App launcher"; };
       "Mod+S".action.toggle-window-floating = [ ];
       "Mod+F".action.fullscreen-window = [ ];
       "Mod+R".action.switch-preset-column-width = [ ];
@@ -109,6 +120,13 @@ in
       "Mod+Up".action.focus-window-up = [ ];
       "Mod+Down".action.focus-window-down = [ ];
       "Mod+Tab".action.focus-column-right = [ ];
+
+      # vim-style focus, alongside the arrow keys
+      "Mod+H".action.focus-column-left = [ ];
+      "Mod+J".action.focus-window-down = [ ];
+      "Mod+K".action.focus-window-up = [ ];
+      "Mod+L".action.focus-column-right = [ ];
+
       "Mod+Shift+Left".action.move-column-left = [ ];
       "Mod+Shift+Right".action.move-column-right = [ ];
 
@@ -118,8 +136,8 @@ in
       "Mod+Shift+S".action.screenshot = [ ];
       "Print".action.screenshot = [ ];
 
-      "Mod+L".action = spawn [ "sh" "-c" "pactl set-sink-mute @DEFAULT_SINK@ 1 && hyprlock" ];
-      "Mod+Alt+Escape".action.quit = [ ];
+      "Mod+Alt+L" = { action = spawn [ "sh" "-c" "wpctl set-mute @DEFAULT_AUDIO_SINK@ 1; ${lock}" ]; hotkey-overlay.title = "Lock screen"; };
+      "Mod+Alt+Escape" = { action.quit = [ ]; hotkey-overlay.title = "Quit niri"; };
 
       "XF86AudioRaiseVolume" = { action = spawn (volume "5%+"); allow-when-locked = true; };
       "XF86AudioLowerVolume" = { action = spawn (volume "5%-"); allow-when-locked = true; };
