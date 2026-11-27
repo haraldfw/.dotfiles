@@ -34,6 +34,9 @@
   };
 
   hardware.uinput.enable = true;
+
+  # Let apps (e.g. Teams/Entra login) talk to the YubiKey over FIDO2
+  services.udev.packages = [ pkgs.libfido2 ];
   services.xserver.xkb = {
     layout = "us";
     variant = "altgr-intl";
